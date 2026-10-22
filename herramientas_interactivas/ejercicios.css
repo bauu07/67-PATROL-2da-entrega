@@ -1,0 +1,255 @@
+/* ========================================================== */
+/* ESTILOS DE EJERCICIOS Y CASOS PRÁCTICOS (ejercicios.css)    */
+/* ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(13, 22, 38, 0.75);
+  --bg-drawer: #02040a;
+  --amber-neon: #ffaa00;
+  --amber-glow: rgba(255, 170, 0, 0.3);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-amber: rgba(255, 170, 0, 0.35);
+  --font-title: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* --- BARRA DE NAVEGACIÓN SUPERIOR --- */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 2.5rem;
+  background: rgba(3, 7, 18, 0.9);
+  border-bottom: 1px solid var(--border-glass);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--border-amber);
+}
+
+.logo-text {
+  font-family: var(--font-title);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.menu-toggle {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-amber);
+  color: var(--amber-neon);
+  font-size: 1.2rem;
+  padding: 10px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--amber-neon);
+  color: var(--bg-deep);
+  box-shadow: 0 0 15px var(--amber-glow);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.badge-header {
+  font-family: var(--font-title);
+  color: var(--amber-neon);
+  background: rgba(255, 170, 0, 0.1);
+  border: 1px solid var(--border-amber);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.main-header h1 {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.main-header p {
+  color: var(--text-muted);
+  font-size: 1.12rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* --- TARJETAS DE EJERCICIOS --- */
+.exercises-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.exercise-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-amber);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.exercise-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.ex-badge {
+  color: var(--amber-neon);
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.ex-difficulty {
+  color: var(--text-muted);
+}
+
+.exercise-card h2 {
+  font-family: var(--font-title);
+  color: #ffffff;
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.exercise-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 1.02rem;
+}
+
+/* --- BOTÓN DE SOLUCIÓN TÉCNICA --- */
+.cyber-btn-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-amber);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn-toggle i {
+  color: var(--amber-neon);
+}
+
+.cyber-btn-toggle:hover {
+  background: rgba(255, 170, 0, 0.15);
+  box-shadow: 0 0 15px var(--amber-glow);
+  border-color: var(--amber-neon);
+}
+
+.solution-box {
+  margin-top: 1.5rem;
+  background: rgba(2, 4, 10, 0.85);
+  border: 1px dashed var(--border-amber);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.solution-box h4 {
+  color: var(--amber-neon);
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.solution-box p {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* --- MENÚ LATERAL DRAWER --- */
+.nav-drawer {
+  position: fixed;
+  top: 0; right: -360px; width: 360px; height: 100vh;
+  background-color: var(--bg-drawer);
+  border-left: 1px solid var(--border-amber);
+  z-index: 200;
+  transition: right 0.4s ease;
+  padding: 2.5rem 2rem;
+  overflow-y: auto;
+}
+.nav-drawer.open { right: 0; }
+.drawer-header { display: flex; justify-content: flex-end; margin-bottom: 2rem; }
+.close-drawer { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+.drawer-menu { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.drawer-menu a { color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 8px; font-family: var(--font-title); font-size: 0.9rem; }
+.drawer-menu a:hover, .drawer-menu a.active { background: rgba(255, 170, 0, 0.15); color: #fff; }
+.submenu { list-style: none; padding-left: 1rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.drawer-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(3, 7, 18, 0.85); z-index: 150; display: none; }
+.drawer-overlay.active { display: block; }
+
+/* --- SECCIÓN EQUIPO Y FOOTER --- */
+.team-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-glass); text-align: center; }
+.team-header { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 0.5rem; }
+.team-title-icon { font-size: 1.5rem; color: var(--amber-neon); }
+.team-header h2 { font-family: var(--font-title); font-size: 1.4rem; color: #fff; }
+.team-subtitle { color: var(--text-muted); margin-bottom: 2.5rem; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; }
+.team-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 1.8rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.icon-wrapper { width: 50px; height: 50px; border-radius: 12px; background: rgba(255, 170, 0, 0.1); display: flex; align-items: center; justify-content: center; color: var(--amber-neon); font-size: 1.3rem; }
+.team-card h3 { font-size: 0.95rem; color: #fff; }
+.role-badge { background: rgba(3, 7, 18, 0.8); border: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; }
+.footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-glass); color: var(--text-muted); font-size: 0.85rem; background-color: var(--bg-drawer); }

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 Patrol - Recursos y Glosario (US-12)</title>
+  
+  <!-- Fuentes Google y FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Hoja de Estilos Externa -->
+  <link rel="stylesheet" href="recurso.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <header class="header-bar">
+    <div class="logo-container">
+      <img src="../imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
+      <span class="logo-text">67 PATROL</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER) -->
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer" id="closeDrawer" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      <li>
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+      </li>
+      <li class="has-submenu" id="gestionSubmenu">
+        <a href="../gestion_calidad/gestion.html" class="submenu-toggle">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="../Tecnicas_aseguramiento/tecnicas.html">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Técnicas de Aseguramiento</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../procesos_desarrollo/proceso.html">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>PROCESOS DE DESARROLLO</span>
+        </a>
+      </li>
+      <li>
+        <a href="../modelos_tradicionales/modelos.html">
+          <i class="fa-solid fa-sitemap"></i>
+          <span>MODELOS TRADICIONALES</span>
+        </a>
+      </li>
+      <li>
+        <a href="../metodologias_agiles/metodologias.html">
+          <i class="fa-solid fa-bolt"></i>
+          <span>METODOLOGÍAS ÁGILES</span>
+        </a>
+      </li>
+      <li>
+        <a href="../metodologias_agiles/metodologias_detalle.html">
+          <i class="fa-solid fa-diagram-next"></i>
+          <span>METODOLOGÍAS EN DETALLE</span>
+        </a>
+      </li>
+      <li>
+        <a href="recurso.html" class="active">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>RECURSOS Y APRENDIZAJE</span>
+        </a>
+      </li>
+      <li>
+        <a href="../herramientas_interactivas/herramientas.html">
+          <i class="fa-solid fa-sliders"></i>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="#equipo">
+          <i class="fa-solid fa-users"></i>
+          <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="container">
+    <section class="main-header">
+      <span class="badge-header">US-12 &bull; RECURSOS Y APRENDIZAJE</span>
+      <h1>Glosario de Ingeniería de Software</h1>
+      <p>
+        Consulta conceptos clave sobre gestión de la calidad, metodologías de desarrollo, aseguramiento y pruebas de software.
+      </p>
+    </section>
+
+    <!-- SECCIÓN DE BÚSQUEDA E ÍNDICE ALFABÉTICO -->
+    <section class="glossary-controls-card">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="glossarySearch" placeholder="Buscar término o definición (ej. Scrum, QA, Refactorización)..." aria-label="Buscar concepto en el glosario">
+        <button id="clearSearch" class="clear-search-btn" aria-label="Limpiar búsqueda">&times;</button>
+      </div>
+
+      <!-- ÍNDICE A-Z INTERACTIVO -->
+      <div class="alphabet-nav" id="alphabetNav">
+        <button class="alpha-btn active" data-letter="all">Todos</button>
+        <button class="alpha-btn" data-letter="A">A</button>
+        <button class="alpha-btn" data-letter="B">B</button>
+        <button class="alpha-btn" data-letter="C">C</button>
+        <button class="alpha-btn" data-letter="D">D</button>
+        <button class="alpha-btn" data-letter="E">E</button>
+
+        <button class="alpha-btn" data-letter="I">I</button>
+
+        <button class="alpha-btn" data-letter="K">K</button>
+
+        <button class="alpha-btn" data-letter="M">M</button>
+
+        <button class="alpha-btn" data-letter="P">P</button>
+        <button class="alpha-btn" data-letter="Q">Q</button>
+        <button class="alpha-btn" data-letter="R">R</button>
+        <button class="alpha-btn" data-letter="S">S</button>
+        <button class="alpha-btn" data-letter="T">T</button>
+
+        <button class="alpha-btn" data-letter="V">V</button>
+        <button class="alpha-btn" data-letter="W">W</button>
+        <button class="alpha-btn" data-letter="X">X</button>
+      </div>
+    </section>
+
+    <!-- PANTALLA SIN RESULTADOS -->
+    <div class="no-results-card" id="noResults" style="display: none;">
+      <i class="fa-solid fa-folder-open"></i>
+      <h3>No se encontraron coincidencias</h3>
+      <p>Intenta buscar con otros términos o limpia el filtro de búsqueda.</p>
+      <button class="reset-filter-btn" id="resetFilterBtn">Restablecer Búsqueda</button>
+    </div>
+
+    <!-- LISTADO DEL GLOSARIO A-Z -->
+    <section class="glossary-list-container" id="glossaryContainer">
+
+      <!-- SECCIÓN A -->
+      <div class="glossary-group" data-group="A">
+        <div class="group-letter-divider">A</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Gestión de Calidad</span>
+            <h3>Aseguramiento de la Calidad (QA)</h3>
+            <p>Conjunto de actividades planificadas y sistemáticas enfocadas en prevenir defectos en los procesos de desarrollo de software.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Artefactos en Scrum</h3>
+            <p>Productos de trabajo que representan valor o transparencia, como el Product Backlog, Sprint Backlog e Incremento.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN B -->
+      <div class="glossary-group" data-group="B">
+        <div class="group-letter-divider">B</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Backlog</h3>
+            <p>Lista priorizada de características, historias de usuario o correcciones necesarias en el desarrollo de un producto.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-tag">Testing</span>
+            <h3>Bug (Defecto)</h3>
+            <p>Error, falla o defecto en un programa de computadora que causa un resultado incorrecto o inesperado.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN C -->
+      <div class="glossary-group" data-group="C">
+        <div class="group-letter-divider">C</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Tradicional</span>
+            <h3>Cascada (Waterfall)</h3>
+            <p>Modelo de desarrollo secuencial donde cada fase (requisitos, diseño, código, pruebas) debe completarse antes de pasar a la siguiente.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-tag">Gestión de Calidad</span>
+            <h3>Control de la Calidad (QC)</h3>
+            <p>Actividades enfocadas en evaluar el producto final para identificar y corregir defectos antes de la entrega.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN D -->
+      <div class="glossary-group" data-group="D">
+        <div class="group-letter-divider">D</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Daily Scrum</h3>
+            <p>Reunión diaria de 15 minutos donde el equipo de desarrollo sincroniza sus actividades y detecta impedimentos.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN E -->
+      <div class="glossary-group" data-group="E">
+        <div class="group-letter-divider">E</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile / XP</span>
+            <h3>Extreme Programming (XP)</h3>
+            <p>Metodología ágil orientada a mejorar la calidad del software respondiendo a requisitos cambiantes mediante prácticas como TDD y Pair Programming.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN I -->
+      <div class="glossary-group" data-group="I">
+        <div class="group-letter-divider">I</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Normativas</span>
+            <h3>ISO/IEC 25010</h3>
+            <p>Estándar internacional que define el modelo de calidad para la evaluación de productos de software.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Incremento</h3>
+            <p>La suma de todos los elementos del Product Backlog completados durante un Sprint que cumplen con la Definición de Hecho (DoD).</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN K -->
+      <div class="glossary-group" data-group="K">
+        <div class="group-letter-divider">K</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Kanban</h3>
+            <p>Método de gestión visual enfocado en optimizar el flujo de trabajo continuo y limitar el trabajo en proceso (WIP).</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN M -->
+      <div class="glossary-group" data-group="M">
+        <div class="group-letter-divider">M</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Filosofía</span>
+            <h3>Manifiesto Ágil</h3>
+            <p>Documento redactado en 2001 que establece 4 valores clave y 12 principios para el desarrollo flexible de software.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN P -->
+      <div class="glossary-group" data-group="P">
+        <div class="group-letter-divider">P</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile / XP</span>
+            <h3>Pair Programming</h3>
+            <p>Técnica en la que dos programadores trabajan juntos en una misma estación de trabajo escribiendo y revisando código en tiempo real.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN Q -->
+      <div class="glossary-group" data-group="Q">
+        <div class="group-letter-divider">Q</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Testing</span>
+            <h3>QA Tester</h3>
+            <p>Rol responsable de ejecutar pruebas, identificar inconsistencias y verificar que el software cumpla los requisitos de calidad.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN R -->
+      <div class="glossary-group" data-group="R">
+        <div class="group-letter-divider">R</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile / XP</span>
+            <h3>Refactorización</h3>
+            <p>Proceso de reestructurar el código fuente existente sin alterar su comportamiento externo para mejorar su legibilidad y mantenibilidad.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN S -->
+      <div class="glossary-group" data-group="S">
+        <div class="group-letter-divider">S</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Scrum</h3>
+            <p>Marco de trabajo adaptativo de desarrollo ágil basado en Sprints, roles bien definidos y ceremonias periódicas.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-tag">Agile</span>
+            <h3>Sprint</h3>
+            <p>Bloque de tiempo fijo (generalmente de 1 a 4 semanas) en el que se crea un incremento funcional de producto.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN T -->
+      <div class="glossary-group" data-group="T">
+        <div class="group-letter-divider">T</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile / XP</span>
+            <h3>TDD (Test-Driven Development)</h3>
+            <p>Técnica de desarrollo orientada a pruebas donde se escribe primero el test automatizado antes del código de producción.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN V -->
+      <div class="glossary-group" data-group="V">
+        <div class="group-letter-divider">V</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Tradicional</span>
+            <h3>Modelo en V</h3>
+            <p>Evolución del modelo en cascada que asocia directamente cada fase de desarrollo con su correspondiente nivel de pruebas.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SECCIÓN W -->
+      <div class="glossary-group" data-group="W">
+        <div class="group-letter-divider">W</div>
+        <div class="terms-grid">
+          <article class="term-card">
+            <span class="term-tag">Agile / Kanban</span>
+            <h3>WIP (Work In Progress)</h3>
+            <p>Límite de tareas permitidas en un estado determinado para prevenir sobrecarga de trabajo y cuellos de botella.</p>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN EQUIPO DE DESARROLLO -->
+    <section class="team-section" id="equipo">
+      <div class="team-header">
+        <i class="fa-solid fa-user-gear team-title-icon"></i>
+        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
+      </div>
+      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Juan Altomare</h3>
+          <span class="role-badge">Diseñador</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-bug-slash"></i></div>
+          <h3>Arias Morena</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
+          <h3>Fran Ainara</h3>
+          <span class="role-badge">Diseñadora y Programadora</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-vial-circle-check"></i></div>
+          <h3>Leiva Dana</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Resoagli Bautista</h3>
+          <span class="role-badge">Scrum Master y Programador</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Archivo JavaScript Externo -->
+  <script src="recurso.js"></script>
+</body>
+</html>

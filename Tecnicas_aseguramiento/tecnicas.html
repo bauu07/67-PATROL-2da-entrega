@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 Patrol - Técnicas de Aseguramiento de la Calidad</title>
+  <link rel="stylesheet" href="tecnicas.css">
+  <!-- FontAwesome 6 para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Encabezado Principal -->
+  <header class="header-bar">
+    <div class="logo-container">
+      <img src="../imagenes/Logo1.jpg" alt="Logo 67 Patrol" class="header-logo-img">
+      <span class="logo-text">67 PATROL // QA DIVISION</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Menú Lateral Desplegable (Drawer) -->
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      
+      <!-- Opción INICIO -->
+      <li>
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+      </li>
+
+      <!-- Gestión de la Calidad (Hover Submenú) -->
+      <li class="has-submenu" id="gestionSubmenu">
+        <a href="../gestion_calidad/gestion.html" class="submenu-toggle active">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="tecnicas.html" class="active">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Técnicas de Aseguramiento</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../procesos_desarrollo/proceso.html">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>PROCESOS DE DESARROLLO</span>
+        </a>
+      </li>
+      <li>
+        <a href="../modelos_tradicionales/modelos.html">
+          <i class="fa-solid fa-sitemap"></i>
+          <span>MODELOS TRADICIONALES</span>
+        </a>
+      </li>
+      <li>
+        <a href="../metodologias_agiles/metodologias.html">
+          <i class="fa-solid fa-bolt"></i>
+          <span>METODOLOGÍAS ÁGILES</span>
+        </a>
+      </li>
+      <li>
+        <a href="../recursos_aprendizajes/recurso.html">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>RECURSOS Y APRENDIZAJE</span>
+        </a>
+      </li>
+      <li>
+        <a href="../herramientas_interactivas/herramientas.html">
+          <i class="fa-solid fa-sliders"></i>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="#equipo">
+          <i class="fa-solid fa-users"></i>
+          <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Contenido Principal -->
+  <main class="container">
+    
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-icon-box">
+        <i class="fa-solid fa-microchip"></i>
+      </div>
+      <span class="badge-header">US-03 &bull; QA TESTING STRATEGIES</span>
+      <h1>TÉCNICAS DE ASEGURAMIENTO DE LA CALIDAD</h1>
+      <p>
+        Estudio analítico de los niveles de pruebas estructurales y tipos de validación 
+        (Caja Negra y Caja Blanca) en la Ingeniería de Software.
+      </p>
+    </section>
+
+    <!-- Sección Niveles de Pruebas -->
+    <section class="section-block">
+      <div class="section-title">
+        <i class="fa-solid fa-layer-group"></i>
+        <h2>Niveles de Pruebas de Software</h2>
+      </div>
+
+      <div class="grid-cards">
+        
+        <article class="info-card">
+          <div class="card-top">
+            <i class="fa-solid fa-cubes card-icon"></i>
+            <h3>Pruebas Unitarias</h3>
+          </div>
+          <p>
+            Evaluación de componentes individuales, funciones, métodos o clases de código de forma completamente aislada del resto del sistema.
+          </p>
+          <div class="card-footer-tag">QA Level 01</div>
+        </article>
+
+        <article class="info-card">
+          <div class="card-top">
+            <i class="fa-solid fa-diagram-project card-icon"></i>
+            <h3>Pruebas de Integración</h3>
+          </div>
+          <p>
+            Verificación de la comunicación, sincronización e intercambio de datos correcto entre diferentes módulos interconectados o bases de datos.
+          </p>
+          <div class="card-footer-tag">QA Level 02</div>
+        </article>
+
+        <article class="info-card">
+          <div class="card-top">
+            <i class="fa-solid fa-desktop card-icon"></i>
+            <h3>Pruebas de Sistema</h3>
+          </div>
+          <p>
+            Evaluación global del software completamente integrado para validar que se comporta de acuerdo con los requerimientos funcionales y no funcionales.
+          </p>
+          <div class="card-footer-tag">QA Level 03</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección Tipos de Validación (Caja Negra vs Caja Blanca) -->
+    <section class="section-block">
+      <div class="section-title">
+        <i class="fa-solid fa-eye"></i>
+        <h2>Tipos de Validación</h2>
+      </div>
+
+      <div class="grid-two-columns">
+        
+        <article class="type-card black-box">
+          <div class="type-header">
+            <i class="fa-solid fa-box"></i>
+            <h3>Pruebas de Caja Negra (Black Box)</h3>
+          </div>
+          <p>
+            Se centran en las entradas y salidas del sistema sin conocer la estructura interna o el código fuente. Evalúan la funcionalidad desde la perspectiva del usuario final.
+          </p>
+          <ul class="type-list">
+            <li><i class="fa-solid fa-check"></i> Pruebas funcionales y de usabilidad.</li>
+            <li><i class="fa-solid fa-check"></i> Partición de equivalencia y valores límite.</li>
+            <li><i class="fa-solid fa-check"></i> Pruebas de aceptación de usuario (UAT).</li>
+          </ul>
+        </article>
+
+        <article class="type-card white-box">
+          <div class="type-header">
+            <i class="fa-solid fa-box-open"></i>
+            <h3>Pruebas de Caja Blanca (White Box)</h3>
+          </div>
+          <p>
+            Examinan la estructura interna del código fuente, flujos lógicos, condiciones y coberturas. Requieren conocimientos avanzados de programación.
+          </p>
+          <ul class="type-list">
+            <li><i class="fa-solid fa-check"></i> Cobertura de sentencias y ramas de código.</li>
+            <li><i class="fa-solid fa-check"></i> Análisis de caminos de ejecución.</li>
+            <li><i class="fa-solid fa-check"></i> Revisión de seguridad e insumos de código.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección Equipo de Desarrollo -->
+    <section class="team-section" id="equipo">
+      <div class="team-header">
+        <i class="fa-solid fa-user-gear team-title-icon"></i>
+        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
+      </div>
+      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3>Juan Altomare</h3>
+          <span class="role-badge">Diseñador</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-bug-slash"></i>
+          </div>
+          <h3>Arias Morena</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Fran Ainara</h3>
+          <span class="role-badge">Diseñadora y Programadora</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-vial-circle-check"></i>
+          </div>
+          <h3>Leiva Dana</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h3>Resoagli Bautista</h3>
+          <span class="role-badge">Scrum Master y Programador</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="tecnicas.js"></script>
+</body>
+</html>

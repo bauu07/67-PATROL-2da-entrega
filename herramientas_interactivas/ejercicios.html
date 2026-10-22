@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 Patrol - Ejercicios y Casos Prácticos</title>
+  
+  <!-- Fuentes Google y FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Hoja de Estilos Externa -->
+  <link rel="stylesheet" href="ejercicios.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR               -->
+  <!-- ========================================== -->
+  <header class="header-bar">
+    <div class="logo-container">
+      <img src="../imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
+      <span class="logo-text">67 PATROL</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER)          -->
+  <!-- ========================================== -->
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer" id="closeDrawer" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      <li>
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+      </li>
+
+      <!-- Gestión de la Calidad -->
+      <li class="has-submenu" id="gestionSubmenu">
+        <a href="../gestion_calidad/gestion.html" class="submenu-toggle">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="../Tecnicas_aseguramiento/tecnicas.html">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Técnicas de Aseguramiento</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../procesos_desarrollo/proceso.html">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>PROCESOS DE DESARROLLO</span>
+        </a>
+      </li>
+      <li>
+        <a href="../modelos_tradicionales/modelos.html">
+          <i class="fa-solid fa-sitemap"></i>
+          <span>MODELOS TRADICIONALES</span>
+        </a>
+      </li>
+
+      <!-- Metodologías Ágiles -->
+      <li class="has-submenu" id="agilesSubmenu">
+        <a href="../metodologias_agiles/metodologias.html" class="submenu-toggle">
+          <i class="fa-solid fa-bolt"></i>
+          <span>METODOLOGÍAS ÁGILES</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="../metodologias_agiles/metodologias_detalle.html">
+              <i class="fa-solid fa-diagram-next"></i>
+              <span>Metodologías en Detalle</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Recursos y Aprendizaje -->
+      <li class="has-submenu" id="recursosSubmenu">
+        <a href="../recursos_aprendizajes/recurso.html" class="submenu-toggle">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>RECURSOS Y APRENDIZAJE</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="../recursos_aprendizajes/recurso.html">
+              <i class="fa-solid fa-spell-check"></i>
+              <span>Glosario A-Z</span>
+            </a>
+          </li>
+          <li>
+            <a href="../recursos_aprendizajes/faq.html">
+              <i class="fa-solid fa-circle-question"></i>
+              <span>Preguntas Frecuentes (FAQ)</span>
+            </a>
+          </li>
+          <li>
+            <a href="../recursos_aprendizajes/enlaces.html">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Enlaces de Interés</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Herramientas Interactivas con Submenú (Activo) -->
+      <li class="has-submenu" id="herramientasSubmenu">
+        <a href="herramientas.html" class="submenu-toggle active">
+          <i class="fa-solid fa-sliders"></i>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="ejercicios.html" class="active">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>Ejercicios y Casos Prácticos</span>
+            </a>
+          </li>
+          <li>
+            <a href="comparador.html">
+              <i class="fa-solid fa-table-columns"></i>
+              <span>Comparador de Metodologías</span>
+            </a>
+          </li>
+          <li>
+            <a href="encuesta.html">
+              <i class="fa-solid fa-square-poll-vertical"></i>
+              <span>Encuesta Metodológica</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#equipo">
+          <i class="fa-solid fa-users"></i>
+          <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ========================================== -->
+  <!-- CONTENEDOR PRINCIPAL                       -->
+  <!-- ========================================== -->
+  <main class="container">
+    <section class="main-header">
+      <span class="badge-header">PRÁCTICA TÉCNICA &bull; US-15</span>
+      <h1>Ejercicios y Casos Prácticos</h1>
+      <p>
+        Resuelve situaciones problemáticas basadas en escenarios reales de ingeniería de software y valida tus soluciones de manera interactiva.
+      </p>
+    </section>
+
+    <!-- CONTENEDOR DE EJERCICIOS (US-15) -->
+    <section class="exercises-container">
+      
+      <!-- CASO 01 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 01</span>
+          <span class="ex-difficulty">Dificultad: Intermedia</span>
+        </div>
+        <h2>Optimización de Flujo y Límites WIP en Kanban</h2>
+        <p>
+          Un equipo de desarrollo experimenta cuellos de botella severos en la fase de pruebas (Testing). Analiza cómo la implementación estricta de límites de Trabajo en Curso (WIP) mejora el rendimiento global del flujo.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution1">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution1" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Establecer un límite WIP de 3 tareas en la columna de pruebas obliga a los desarrolladores a colaborar en QA en lugar de iniciar nuevas historias de usuario, equilibrando el rendimiento del equipo de punta a punta.
+          </p>
+        </div>
+      </div>
+
+      <!-- CASO 02 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 02</span>
+          <span class="ex-difficulty">Dificultad: Avanzada</span>
+        </div>
+        <h2>Cálculo de Densidad de Defectos (ISO 25010)</h2>
+        <p>
+          Calcula la densidad de defectos de un módulo crítico que contiene 12,500 líneas de código (KLOC) y en el cual el departamento de QA ha registrado 45 incidencias totales durante la fase de pruebas de aceptación.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution2">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution2" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            La fórmula es <em>Densidad = Total de Defectos / KLOC</em>. Por lo tanto: 45 / 12.5 = <strong>3.6 defectos por KLOC</strong>, lo cual indica un nivel de calidad que requiere refactorización en los módulos más complejos.
+          </p>
+        </div>
+      </div>
+
+      <!-- CASO 03 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 03</span>
+          <span class="ex-difficulty">Dificultad: Principiante</span>
+        </div>
+        <h2>Estimación de Velocidad y Capacidad en Scrum</h2>
+        <p>
+          Un equipo Scrum planifica un Sprint de 2 semanas con 4 desarrolladores a tiempo completo. Si la velocidad promedio histórica es de 32 Puntos de Historia (Story Points), determina la carga recomendada considerando una disponibilidad del 80% por capacitaciones.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution3">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution3" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Ajustando la velocidad según la disponibilidad real: <em>32 SP &times; 0.80 = <strong>25.6 SP (aprox. 25 a 26 Story Points)</strong></em>. Esto previene la sobrecarga de trabajo y protege el compromiso del Sprint Goal.
+          </p>
+        </div>
+      </div>
+
+      <!-- CASO 04 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 04</span>
+          <span class="ex-difficulty">Dificultad: Avanzada</span>
+        </div>
+        <h2>Análisis de Riesgos en el Modelo en Espiral</h2>
+        <p>
+          Un proyecto de software bancario evalúa la implementación de una nueva pasarela de pagos con alta incertidumbre técnica. Explica por qué el Modelo en Espiral resulta superior al Modelo en Cascada para este escenario.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution4">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution4" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            El Modelo en Espiral integra un cuadrante explícito de <strong>Análisis y Mitigación de Riesgos</strong> al inicio de cada iteración, permitiendo construir prototipos operativos de la pasarela para validar la factibilidad antes de comprometer grandes inversiones.
+          </p>
+        </div>
+      </div>
+
+      <!-- CASO 05 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 05</span>
+          <span class="ex-difficulty">Dificultad: Intermedia</span>
+        </div>
+        <h2>Mantenibilidad y Complejidad Ciclomática (ISO 9126)</h2>
+        <p>
+          Un algoritmo de procesamiento de pagos presenta una complejidad ciclomática $V(G) = 18$. Evalúa el impacto de esta métrica en la mantenibilidad del código y propone una estrategia de refactorización.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution5">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution5" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Una complejidad superior a 10 indica alto riesgo y baja mantenibilidad. Se recomienda descomponer el algoritmo aplicando el patrón <em>Strategy</em> o dividiendo funciones condicionales anidadas en métodos auxiliares más pequeños y testeables.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN EQUIPO DE DESARROLLO -->
+    <section class="team-section" id="equipo">
+      <div class="team-header">
+        <i class="fa-solid fa-user-gear team-title-icon"></i>
+        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
+      </div>
+      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Juan Altomare</h3>
+          <span class="role-badge">Diseñador</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-bug-slash"></i></div>
+          <h3>Arias Morena</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
+          <h3>Fran Ainara</h3>
+          <span class="role-badge">Diseñadora y Programadora</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-vial-circle-check"></i></div>
+          <h3>Leiva Dana</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+        <div class="team-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Resoagli Bautista</h3>
+          <span class="role-badge">Scrum Master y Programador</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Archivo JavaScript Externo -->
+  <script src="ejercicios.js"></script>
+</body>
+</html>

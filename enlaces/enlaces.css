@@ -1,0 +1,460 @@
+/* ========================================================== */
+/* ESTILOS NEOBRUTALISM TECH & HIGH CONTRAST - ENLACES        */
+/* ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg-brutal: #f4f4f0;
+  --bg-card: #ffffff;
+  --bg-drawer: #0f1115;
+
+  --acid-green: #ccff00;
+  --electric-pink: #ff0055;
+  --electric-blue: #00e5ff;
+  --dark-main: #0f1115;
+
+  --text-main: #0f1115;
+  --text-muted: #52525b;
+
+  --border-brutal: 3px solid #0f1115;
+  --shadow-brutal: 5px 5px 0px #0f1115;
+  --shadow-brutal-hover: 8px 8px 0px #0f1115;
+
+  --font-title: 'Syne', sans-serif;
+  --font-body: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-brutal);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- NAVBAR SUPERIOR NEOBRUTALISTA --- */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: #ffffff;
+  border-bottom: var(--border-brutal);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 0px #0f1115;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid var(--dark-main);
+  background: var(--acid-green);
+}
+
+.logo-text {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark-main);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.menu-toggle {
+  background: var(--acid-green);
+  border: var(--border-brutal);
+  color: var(--dark-main);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-brutal);
+  transition: all 0.15s ease;
+}
+
+.menu-toggle:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutal-hover);
+  background: var(--electric-pink);
+  color: #ffffff;
+}
+
+/* --- MENÚ LATERAL DRAWER --- */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 380px;
+  height: 100vh;
+  background-color: var(--bg-drawer);
+  border-left: var(--border-brutal);
+  box-shadow: -15px 0 0px rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 2.5rem 2rem;
+  overflow-y: auto;
+}
+
+.nav-drawer.open { right: 0; }
+
+.drawer-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.close-drawer {
+  background: var(--electric-pink);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.close-drawer:hover { transform: rotate(90deg) scale(1.1); }
+
+.drawer-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drawer-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s ease;
+}
+
+.drawer-menu a i { color: var(--acid-green); width: 20px; text-align: center; }
+
+.drawer-menu a:hover, .drawer-menu a.active {
+  background: var(--acid-green);
+  color: var(--dark-main);
+  border-color: var(--acid-green);
+  box-shadow: 4px 4px 0px #ffffff;
+}
+
+.has-submenu { display: flex; flex-direction: column; }
+.submenu-toggle .arrow-icon { margin-left: auto; transition: transform 0.2s ease; }
+.has-submenu:hover .arrow-icon { transform: rotate(180deg); }
+
+.submenu {
+  list-style: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.has-submenu:hover .submenu { max-height: 200px; opacity: 1; margin-top: 0.8rem; }
+
+.submenu a {
+  font-size: 0.8rem !important;
+  color: #a1a1aa;
+  padding: 10px 14px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.submenu a:hover {
+  background: var(--electric-blue);
+  color: var(--dark-main);
+  border-color: var(--electric-blue);
+  box-shadow: 3px 3px 0px #ffffff;
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(15, 17, 21, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: 150;
+  display: none;
+}
+.drawer-overlay.active { display: block; }
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.badge-header {
+  font-family: var(--font-body);
+  color: var(--dark-main);
+  background: var(--acid-green);
+  border: var(--border-brutal);
+  padding: 6px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  box-shadow: 3px 3px 0px #0f1115;
+  text-transform: uppercase;
+}
+
+.main-header h1 {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--dark-main);
+  margin-bottom: 1rem;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+
+.main-header p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+/* --- GRID DE TARJETAS NEOBRUTALISTAS --- */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.2rem;
+}
+
+.link-card {
+  background: var(--bg-card);
+  border: var(--border-brutal);
+  border-radius: 12px;
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-brutal);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-brutal-hover);
+}
+
+.link-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.resource-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  border: 2px solid var(--dark-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 3px 3px 0px #0f1115;
+}
+
+/* Colores de íconos distintivos por tipo */
+.type-web { background: var(--electric-blue); color: var(--dark-main); }
+.type-libro { background: #e0bbff; color: var(--dark-main); }
+.type-organizacion { background: var(--electric-pink); color: #ffffff; }
+.type-pdf { background: #ffaa00; color: var(--dark-main); }
+
+.resource-badge {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 2px solid var(--dark-main);
+  box-shadow: 2px 2px 0px #0f1115;
+  text-transform: uppercase;
+}
+
+.resource-badge.type-web { background: var(--electric-blue); color: var(--dark-main); }
+.resource-badge.type-libro { background: #e0bbff; color: var(--dark-main); }
+.resource-badge.type-organizacion { background: var(--electric-pink); color: #ffffff; }
+.resource-badge.type-pdf { background: #ffaa00; color: var(--dark-main); }
+
+.link-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark-main);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+
+.link-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  flex: 1;
+  font-weight: 400;
+}
+
+.external-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--acid-green);
+  border: var(--border-brutal);
+  color: var(--dark-main);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px #0f1115;
+  transition: all 0.15s ease;
+}
+
+.external-link-btn:hover {
+  background: var(--dark-main);
+  color: var(--acid-green);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--electric-pink);
+}
+
+/* --- SECCIÓN EQUIPO Y FOOTER --- */
+.team-section {
+  margin-top: 8rem;
+  padding-top: 5rem;
+  border-top: var(--border-brutal);
+  text-align: center;
+  background: #ffffff;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-brutal);
+  border: var(--border-brutal);
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 0.8rem;
+}
+
+.team-title-icon { font-size: 1.8rem; color: var(--electric-pink); }
+.team-header h2 { font-family: var(--font-title); font-size: 1.8rem; color: var(--dark-main); text-transform: uppercase; }
+.team-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 3.5rem; font-weight: 700; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: var(--bg-brutal);
+  border: var(--border-brutal);
+  border-radius: 12px;
+  padding: 2.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-brutal);
+  transition: transform 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-brutal-hover);
+  background: #ffffff;
+}
+
+.icon-wrapper {
+  width: 58px; height: 58px;
+  border-radius: 10px;
+  background: var(--acid-green);
+  border: 2px solid var(--dark-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  box-shadow: 2px 2px 0px #0f1115;
+}
+
+.icon-wrapper i { font-size: 1.5rem; color: var(--dark-main); }
+.team-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark-main); }
+
+.role-badge {
+  background-color: var(--dark-main);
+  color: var(--acid-green);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--dark-main);
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  border-top: var(--border-brutal);
+  color: #ffffff;
+  font-size: 0.9rem;
+  background-color: var(--dark-main);
+  margin-top: 5rem;
+  font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .main-header h1 { font-size: 2.4rem; }
+}

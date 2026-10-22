@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 Patrol - Ciclo de Vida del Software (SDLC)</title>
+  <link rel="stylesheet" href="proceso.css">
+  <!-- FontAwesome 6 para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header-bar">
+    <div class="logo-container">
+      <img src="../imagenes/Logo1.jpg" alt="Logo 67 Patrol" class="header-logo-img">
+      <span class="logo-text">67 PATROL</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Menú Lateral Desplegable (Drawer) con Submenú -->
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      
+      <!-- Opción con Submenú (Gestión de la Calidad) -->
+      <li class="has-submenu" id="gestionSubmenu">
+        <a href="javascript:void(0)" class="submenu-toggle" id="toggleGestion">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+          <i class="fa-solid fa-chevron-down arrow-icon" id="arrowGestion"></i>
+        </a>
+        <ul class="submenu">
+          <li>
+            <a href="../gestion_calidad/gestion.html">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Técnicas de Aseguramiento</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="proceso.html" class="active">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>PROCESOS DE DESARROLLO</span>
+        </a>
+      </li>
+      <li>
+        <a href="../metodologias_agiles/metodologias.html">
+          <i class="fa-solid fa-bolt"></i>
+          <span>METODOLOGÍAS ÁGILES</span>
+        </a>
+      </li>
+      <li>
+        <a href="../recursos_aprendizajes/recurso.html">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>RECURSOS Y APRENDIZAJE</span>
+        </a>
+      </li>
+      <li>
+        <a href="../herramientas_interactivas/herramientas.html">
+          <i class="fa-solid fa-sliders"></i>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="#equipo">
+          <i class="fa-solid fa-users"></i>
+          <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Contenido Principal SDLC -->
+  <main class="container">
+    <section class="sdlc-header">
+      <span class="badge-header">QA & SDLC FRAMEWORK</span>
+      <h1>Ciclo de Vida del Desarrollo de Software</h1>
+      <p>
+        El SDLC (Software Development Life Cycle) define la estructura metodológica empleada en la construcción, 
+        evaluación y entrega de software de alta calidad dentro de 67 Patrol.
+      </p>
+    </section>
+
+    <!-- Barra de Progreso del Timeline -->
+    <div class="timeline-progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Timeline SDLC -->
+    <section class="timeline-container">
+      
+      <article class="timeline-card" data-step="1">
+        <div class="timeline-marker">01</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 01 &bull; Requisitos</span>
+          <h2>Análisis de Requisitos</h2>
+          <p>Relevamiento y documentación formal de requisitos funcionales y no funcionales. Definición de criterios de aceptación y especificación de casos de prueba iniciales.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Validación de historias de usuario (INVEST) y prevención de ambigüedades.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="2">
+        <div class="timeline-marker">02</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 02 &bull; Arquitectura</span>
+          <h2>Diseño de Arquitectura y Sistema</h2>
+          <p>Modelado de arquitectura del software, esquemas de bases de datos, diagramas UML y maquetación de interfaces (UI/UX) para garantizar escalabilidad y usabilidad.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Revisión del diseño técnico, seguridad, rendimiento y plan de pruebas de integración.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="3">
+        <div class="timeline-marker">03</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 03 &bull; Código</span>
+          <h2>Desarrollo e Implementación</h2>
+          <p>Escritura del código fuente siguiendo buenas prácticas de programación, control de versiones (Git), patrones de diseño y revisión de código entre pares.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Ejecución de análisis estático de código, pruebas unitarias y cobertura de código.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="4">
+        <div class="timeline-marker">04</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 04 &bull; Testing</span>
+          <h2>Pruebas y Verificación (QA Testing)</h2>
+          <p>Ejecución intensiva de pruebas funcionales, de regresión, de integración, rendimiento y seguridad para identificar y corregir defectos antes de la liberación.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Reporte y seguimiento de bugs, verificación de criterios de aceptación.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="5">
+        <div class="timeline-marker">05</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 05 &bull; Release</span>
+          <h2>Despliegue y Entrega</h2>
+          <p>Liberación controlada en entornos de producción mediante pipelines CI/CD. Monitoreo en tiempo real del rendimiento e impacto de la versión.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Smoke testing post-despliegue y pruebas de aceptación de usuario (UAT).</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="6">
+        <div class="timeline-marker">06</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 06 &bull; Soporte</span>
+          <h2>Mantenimiento y Evolución</h2>
+          <p>Atención a incidencias de producción, aplicación de parches de seguridad y actualización constante de funcionalidades.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Pruebas de mantenimiento y actualización de la suite de pruebas automatizadas.</div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Sección Equipo de Desarrollo -->
+    <section class="team-section" id="equipo">
+      <div class="team-header">
+        <i class="fa-solid fa-user-gear team-title-icon"></i>
+        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
+      </div>
+      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3>Juan Altomare</h3>
+          <span class="role-badge">Diseñador</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-bug-slash"></i>
+          </div>
+          <h3>Arias Morena</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Fran Ainara</h3>
+          <span class="role-badge">Diseñadora y Programadora</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-vial-circle-check"></i>
+          </div>
+          <h3>Leiva Dana</h3>
+          <span class="role-badge">Tester</span>
+        </div>
+
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h3>Resoagli Bautista</h3>
+          <span class="role-badge">Scrum Master y Programador</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="proceso.js"></script>
+</body>
+</html>
