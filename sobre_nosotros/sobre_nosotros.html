@@ -21,7 +21,7 @@
   <!-- ========================================== -->
   <header class="header-bar">
     <div class="logo-container">
-      <img src="imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
+      <img src="../imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
       <span class="logo-text">67 PATROL</span>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
@@ -30,7 +30,7 @@
   </header>
 
   <!-- ========================================== -->
-  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER)          -->
+  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER MÓVIL)    -->
   <!-- ========================================== -->
   <nav class="nav-drawer" id="navDrawer">
     <div class="drawer-header">
@@ -38,105 +38,41 @@
     </div>
     <ul class="drawer-menu">
       <li>
-        <a href="index.html">
+        <a href="../index.html">
           <i class="fa-solid fa-house"></i>
           <span>INICIO</span>
         </a>
       </li>
-
-      <!-- Gestión de la Calidad -->
-      <li class="has-submenu" id="gestionSubmenu">
-        <a href="gestion_calidad/gestion.html" class="submenu-toggle">
+      <li>
+        <a href="../gestion_calidad/gestion.html">
           <i class="fa-solid fa-shield-halved"></i>
           <span>GESTIÓN DE LA CALIDAD</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="Tecnicas_aseguramiento/tecnicas.html">
-              <i class="fa-solid fa-list-check"></i>
-              <span>Técnicas de Aseguramiento</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
       <li>
-        <a href="procesos_desarrollo/proceso.html">
+        <a href="../procesos_desarrollo/proceso.html">
           <i class="fa-solid fa-code-branch"></i>
           <span>PROCESOS DE DESARROLLO</span>
         </a>
       </li>
       <li>
-        <a href="modelos_tradicionales/modelos.html">
-          <i class="fa-solid fa-sitemap"></i>
-          <span>MODELOS TRADICIONALES</span>
-        </a>
-      </li>
-
-      <!-- Metodologías Ágiles -->
-      <li class="has-submenu" id="agilesSubmenu">
-        <a href="metodologias_agiles/metodologias.html" class="submenu-toggle">
+        <a href="../metodologias_agiles/metodologias.html">
           <i class="fa-solid fa-bolt"></i>
           <span>METODOLOGÍAS ÁGILES</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="metodologias_agiles/metodologias_detalle.html">
-              <i class="fa-solid fa-diagram-next"></i>
-              <span>Metodologías en Detalle</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
-      <!-- Recursos y Aprendizaje -->
-      <li class="has-submenu" id="recursosSubmenu">
-        <a href="recursos_aprendizajes/recurso.html" class="submenu-toggle">
-          <i class="fa-solid fa-book-bookmark"></i>
+      <li>
+        <a href="../recursos_aprendizajes/recurso.html">
+          <i class="fa-solid fa-spell-check"></i>
           <span>RECURSOS Y APRENDIZAJE</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="recursos_aprendizajes/recurso.html">
-              <i class="fa-solid fa-spell-check"></i>
-              <span>Glosario A-Z</span>
-            </a>
-          </li>
-          <li>
-            <a href="recursos_aprendizajes/faq.html">
-              <i class="fa-solid fa-circle-question"></i>
-              <span>Preguntas Frecuentes (FAQ)</span>
-            </a>
-          </li>
-          <li>
-            <a href="recursos_aprendizajes/enlaces.html">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Enlaces de Interés</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
-      <!-- Herramientas Interactivas -->
-      <li class="has-submenu" id="herramientasSubmenu">
-        <a href="herramientas_interactivas/herramientas.html" class="submenu-toggle">
-          <i class="fa-solid fa-sliders"></i>
+      <li>
+        <a href="../herramientas_interactivas/herramientas.html">
+          <i class="fa-solid fa-laptop-code"></i>
           <span>HERRAMIENTAS INTERACTIVAS</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="herramientas_interactivas/ejercicios.html">
-              <i class="fa-solid fa-laptop-code"></i>
-              <span>Ejercicios y Casos Prácticos</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
       <li>
         <a href="sobre_nosotros.html" class="active">
           <i class="fa-solid fa-users"></i>
@@ -144,8 +80,8 @@
         </a>
       </li>
       <li>
-        <a href="contacto.html">
-          <i class="fa-solid fa-envelope"></i>
+        <a href="../formulario_contacto/contacto.html">
+          <i class="fa-solid fa-paper-plane"></i>
           <span>CONTACTO</span>
         </a>
       </li>
@@ -181,31 +117,16 @@
       </div>
     </section>
 
-    <!-- GRID DE TARJETAS DE INTEGRANTES (PERFILES DE EQUIPO) -->
+    <!-- GRID DE TARJETAS DE INTEGRANTES (PERFILES DE EQUIPO CON IDS PARA ANCLAJES) -->
     <section class="team-profiles-grid">
 
-      <!-- INTEGRANTE 1: ROSAGLI BAUTISTA -->
-      <article class="profile-card" data-role="scrum">
-        <div class="card-glow"></div>
-        <div class="avatar-box">
-          <i class="fa-solid fa-diagram-project"></i>
-        </div>
-        <span class="role-badge role-scrum">Scrum Master & Programador</span>
-        <h3 class="member-name">Resoagli Bautista</h3>
-        <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
-        <div class="member-motivation">
-          <h4><i class="fa-solid fa-quote-left"></i> Motivación</h4>
-          <p>"Coordinar la metodología del equipo y asegurar que cada entregable cumpla con estándares técnicos sólidos y un flujo ágil continuo."</p>
-        </div>
-      </article>
-
-      <!-- INTEGRANTE 2: JUAN ALTOMARE -->
-      <article class="profile-card" data-role="designer">
+      <!-- INTEGRANTE 1: JUAN ALTOMARE -->
+      <article class="profile-card" data-role="designer" id="juan-altomare">
         <div class="card-glow"></div>
         <div class="avatar-box">
           <i class="fa-solid fa-pen-nib"></i>
         </div>
-        <span class="role-badge role-designer">Diseñador UI/UX</span>
+        <span class="role-badge role-designer">Diseñador</span>
         <h3 class="member-name">Juan Altomare</h3>
         <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
         <div class="member-motivation">
@@ -214,28 +135,13 @@
         </div>
       </article>
 
-      <!-- INTEGRANTE 3: FRAN AINARA -->
-      <article class="profile-card" data-role="dev">
-        <div class="card-glow"></div>
-        <div class="avatar-box">
-          <i class="fa-solid fa-code"></i>
-        </div>
-        <span class="role-badge role-dev">Diseñadora & Programadora</span>
-        <h3 class="member-name">Fran Ainara</h3>
-        <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
-        <div class="member-motivation">
-          <h4><i class="fa-solid fa-quote-left"></i> Motivación</h4>
-          <p>"Construir código estructurado, semántico y receptivo, garantizando una arquitectura web sólida combinada con estética visual moderna."</p>
-        </div>
-      </article>
-
-      <!-- INTEGRANTE 4: ARIAS MORENA -->
-      <article class="profile-card" data-role="tester">
+      <!-- INTEGRANTE 2: ARIAS MORENA -->
+      <article class="profile-card" data-role="tester" id="arias-morena">
         <div class="card-glow"></div>
         <div class="avatar-box">
           <i class="fa-solid fa-bug-slash"></i>
         </div>
-        <span class="role-badge role-tester">QA Tester</span>
+        <span class="role-badge role-tester">Tester</span>
         <h3 class="member-name">Arias Morena</h3>
         <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
         <div class="member-motivation">
@@ -244,18 +150,48 @@
         </div>
       </article>
 
-      <!-- INTEGRANTE 5: LEIVA DANA -->
-      <article class="profile-card" data-role="tester">
+      <!-- INTEGRANTE 3: FRAN AINARA -->
+      <article class="profile-card" data-role="dev" id="fran-ainara">
+        <div class="card-glow"></div>
+        <div class="avatar-box">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <span class="role-badge role-dev">Diseñadora y Programadora</span>
+        <h3 class="member-name">Fran Ainara</h3>
+        <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
+        <div class="member-motivation">
+          <h4><i class="fa-solid fa-quote-left"></i> Motivación</h4>
+          <p>"Construir código estructurado, semántico y receptivo, garantizando una arquitectura web sólida combinada con estética visual moderna."</p>
+        </div>
+      </article>
+
+      <!-- INTEGRANTE 4: LEIVA DANA -->
+      <article class="profile-card" data-role="tester" id="leiva-dana">
         <div class="card-glow"></div>
         <div class="avatar-box">
           <i class="fa-solid fa-vial-circle-check"></i>
         </div>
-        <span class="role-badge role-tester">QA Tester</span>
+        <span class="role-badge role-tester">Tester</span>
         <h3 class="member-name">Leiva Dana</h3>
         <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
         <div class="member-motivation">
           <h4><i class="fa-solid fa-quote-left"></i> Motivación</h4>
           <p>"Garantizar el cumplimiento estricto de las historias de usuario y la usabilidad impecable en cada módulo interactivo."</p>
+        </div>
+      </article>
+
+      <!-- INTEGRANTE 5: RESOAGLI BAUTISTA -->
+      <article class="profile-card" data-role="scrum" id="resoagli-bautista">
+        <div class="card-glow"></div>
+        <div class="avatar-box">
+          <i class="fa-solid fa-diagram-project"></i>
+        </div>
+        <span class="role-badge role-scrum">Scrum Master y Programador</span>
+        <h3 class="member-name">Resoagli Bautista</h3>
+        <p class="member-institution"><i class="fa-solid fa-school"></i> EPET N°20</p>
+        <div class="member-motivation">
+          <h4><i class="fa-solid fa-quote-left"></i> Motivación</h4>
+          <p>"Coordinar la metodología del equipo y asegurar que cada entregable cumpla con estándares técnicos sólidos y un flujo ágil continuo."</p>
         </div>
       </article>
 

@@ -1,5 +1,5 @@
 /* ========================================================== */
-/* LÓGICA DEL MENÚ LATERAL - INDEX.JS                         */
+/* SCRIPT PARA LA PÁGINA PRINCIPAL (index.js)                 */
 /* ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,19 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDrawer = document.getElementById('navDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  const openMenu = () => {
-    navDrawer.classList.add('open');
-    drawerOverlay.classList.add('active');
-  };
+  if (menuToggle && navDrawer) {
+    menuToggle.addEventListener('click', () => {
+      navDrawer.classList.add('open');
+      drawerOverlay.classList.add('active');
+    });
+  }
 
-  const closeMenu = () => {
-    navDrawer.classList.remove('open');
-    drawerOverlay.classList.remove('active');
-  };
+  if (closeDrawer && navDrawer) {
+    closeDrawer.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('active');
+    });
+  }
 
-  if (menuToggle && closeDrawer && drawerOverlay) {
-    menuToggle.addEventListener('click', openMenu);
-    closeDrawer.addEventListener('click', closeMenu);
-    drawerOverlay.addEventListener('click', closeMenu);
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('active');
+    });
   }
 });

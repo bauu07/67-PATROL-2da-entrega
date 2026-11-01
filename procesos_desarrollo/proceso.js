@@ -1,53 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- Control del Menú Lateral (Drawer) ---
+  // 1. Toggle del menú lateral (Drawer)
   const menuToggle = document.getElementById('menuToggle');
-  const closeDrawer = document.getElementById('closeDrawer');
   const navDrawer = document.getElementById('navDrawer');
+  const closeDrawer = document.getElementById('closeDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  const openMenu = () => {
-    navDrawer.classList.add('open');
-    drawerOverlay.classList.add('active');
-  };
-
-  const closeMenu = () => {
-    navDrawer.classList.remove('open');
-    drawerOverlay.classList.remove('active');
-  };
-
-  if (menuToggle && closeDrawer && drawerOverlay) {
-    menuToggle.addEventListener('click', openMenu);
-    closeDrawer.addEventListener('click', closeMenu);
-    drawerOverlay.addEventListener('click', closeMenu);
+  function toggleMenu() {
+    navDrawer.classList.toggle('open');
+    drawerOverlay.classList.toggle('active');
   }
 
-  // --- Animaciones e Iluminación del Timeline ---
-  const cards = document.querySelectorAll('.timeline-card');
-  const progressFill = document.getElementById('progressFill');
+  if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+  if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.35
-  };
+  // 2. Sistema de Pestañas para Modelos Tradicionales (US-06)
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        updateProgressBar();
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      tabContents.forEach(content => {
+        if (content.id === targetId) {
+          content.style.display = 'block';
+          content.classList.add('active');
+        } else {
+          content.style.display = 'none';
+          content.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // 3. Lightbox Modal para Pantalla Completa (US-07)
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const modalCaption = document.getElementById('lightboxCaption');
+  const closeBtn = document.getElementById('lightboxClose');
+  const zoomableImgs = document.querySelectorAll('.zoomable-img');
+
+  zoomableImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.classList.add('active');
+      modalImg.src = img.src;
+      modalCaption.textContent = img.alt;
+    });
+  });
+
+  function closeLightbox() {
+    modal.classList.remove('active');
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeLightbox();
       }
     });
-  }, observerOptions);
-
-  cards.forEach(card => observer.observe(card));
-
-  function updateProgressBar() {
-    const activeCards = document.querySelectorAll('.timeline-card.active').length;
-    const percentage = (activeCards / cards.length) * 100;
-    if (progressFill) {
-      progressFill.style.width = `${percentage}%`;
-    }
   }
 
+  // Cerrar lightbox con la tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
 });

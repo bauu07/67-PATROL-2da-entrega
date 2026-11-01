@@ -2,23 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>67 Patrol - Metodologías Ágiles (US-08 y US-09)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>67 Patrol - Práctica Técnica y Encuesta Metodológica</title>
   
   <!-- Fuentes Google y FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Hoja de Estilos Externa -->
-  <link rel="stylesheet" href="metodologias.css">
+  <!-- Hojas de Estilos -->
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="herramientas.css">
 </head>
 <body>
 
-  <!-- ========================================== -->
-  <!-- BARRA DE NAVEGACIÓN SUPERIOR               -->
-  <!-- ========================================== -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
   <header class="header-bar">
     <div class="logo-container">
       <img src="../imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
@@ -29,40 +28,24 @@
     </button>
   </header>
 
-  <!-- ========================================== -->
-  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER)          -->
-  <!-- ========================================== -->
+  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER) -->
   <nav class="nav-drawer" id="navDrawer">
     <div class="drawer-header">
       <button class="close-drawer" id="closeDrawer" aria-label="Cerrar menú">&times;</button>
     </div>
     <ul class="drawer-menu">
-      
-      <!-- Opción de Inicio -->
       <li>
         <a href="../index.html">
           <i class="fa-solid fa-house"></i>
           <span>INICIO</span>
         </a>
       </li>
-
-      <!-- Gestión de la Calidad con Submenú por Hover -->
-      <li class="has-submenu" id="gestionSubmenu">
-        <a href="../gestion_calidad/gestion.html" class="submenu-toggle">
+      <li>
+        <a href="../gestion_calidad/gestion.html">
           <i class="fa-solid fa-shield-halved"></i>
           <span>GESTIÓN DE LA CALIDAD</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="../Tecnicas_aseguramiento/tecnicas.html">
-              <i class="fa-solid fa-list-check"></i>
-              <span>Técnicas de Aseguramiento</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
       <li>
         <a href="../procesos_desarrollo/proceso.html">
           <i class="fa-solid fa-code-branch"></i>
@@ -70,246 +53,418 @@
         </a>
       </li>
       <li>
-        <a href="../modelos_tradicionales/modelos.html">
-          <i class="fa-solid fa-sitemap"></i>
-          <span>MODELOS TRADICIONALES</span>
-        </a>
-      </li>
-      <li>
-        <a href="metodologias.html" class="active">
+        <a href="../metodologias_agiles/metodologias.html">
           <i class="fa-solid fa-bolt"></i>
           <span>METODOLOGÍAS ÁGILES</span>
         </a>
       </li>
       <li>
-        <a href="../recursos_aprendizajes/recurso.html">
-          <i class="fa-solid fa-book-bookmark"></i>
-          <span>RECURSOS Y APRENDIZAJE</span>
+        <a href="herramientas.html" class="active">
+          <i class="fa-solid fa-laptop-code"></i>
+          <span>HERRAMIENTAS Y PRÁCTICA</span>
         </a>
       </li>
       <li>
-        <a href="../herramientas_interactivas/herramientas.html">
-          <i class="fa-solid fa-sliders"></i>
-          <span>HERRAMIENTAS INTERACTIVAS</span>
-        </a>
-      </li>
-      <li>
-        <a href="#equipo">
+        <a href="../sobre_nosotros/sobre_nosotros.html">
           <i class="fa-solid fa-users"></i>
           <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+      <li>
+        <a href="../formulario_contacto/contacto.html">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>CONTACTO</span>
         </a>
       </li>
     </ul>
   </nav>
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
-  <!-- ========================================== -->
-  <!-- CONTENEDOR PRINCIPAL                       -->
-  <!-- ========================================== -->
+  <!-- CONTENEDOR PRINCIPAL -->
   <main class="container">
+    
+    <!-- ENCABEZADO DE EJERCICIOS -->
     <section class="main-header">
-      <span class="badge-header">US-08 &amp; US-09 &bull; AGILE FRAMEWORK</span>
-      <h1>Metodologías Ágiles</h1>
+      <span class="badge-header">PRÁCTICA TÉCNICA &bull; US-15</span>
+      <h1>Ejercicios y Casos Prácticos</h1>
       <p>
-        Marco conceptual y operativo basado en el Manifiesto Ágil. Explora los principios, valores, artefactos y ceremonias de Scrum, Kanban y XP.
+        Resuelve situaciones problemáticas basadas en escenarios reales de ingeniería de software y valida tus soluciones de manera interactiva.
       </p>
     </section>
 
-    <!-- MENÚ FLOTANTE / TABLA DE CONTENIDOS DINÁMICA (US-08) -->
-    <nav class="toc-bar" id="tocBar">
-      <a href="#manifiesto" class="toc-btn active"><i class="fa-solid fa-scroll"></i> Manifiesto Ágil</a>
-      <a href="#scrum" class="toc-btn"><i class="fa-solid fa-rotate"></i> Scrum</a>
-      <a href="#kanban" class="toc-btn"><i class="fa-solid fa-columns"></i> Kanban</a>
-      <a href="#xp" class="toc-btn"><i class="fa-solid fa-code-merge"></i> Extreme Programming (XP)</a>
-    </nav>
-
-    <!-- APARTADO 1: MANIFIESTO ÁGIL -->
-    <section class="content-section" id="manifiesto">
-      <div class="model-intro-card">
-        <div class="model-badge"><i class="fa-solid fa-bullhorn"></i> Fundamentos</div>
-        <h2>Manifiesto Ágil: Valores y Principios</h2>
+    <!-- CONTENEDOR DE EJERCICIOS (US-15) -->
+    <section class="exercises-container">
+      
+      <!-- CASO 01 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 01</span>
+          <span class="ex-difficulty">Dificultad: Intermedia</span>
+        </div>
+        <h2>Optimización de Flujo y Límites WIP en Kanban</h2>
         <p>
-          Las metodologías ágiles priorizan a las personas, la colaboración y la respuesta rápida al cambio por encima de los procesos rígidos y la documentación excesiva.
+          Un equipo de desarrollo experimenta cuellos de botella severos en la fase de pruebas (Testing). Analiza cómo la implementación estricta de límites de Trabajo en Curso (WIP) mejora el rendimiento global del flujo.
         </p>
-
-        <div class="values-grid">
-          <div class="val-card">
-            <i class="fa-solid fa-users"></i>
-            <h3>Individuos e interacciones</h3>
-            <span>sobre procesos y herramientas</span>
-          </div>
-          <div class="val-card">
-            <i class="fa-solid fa-laptop-code"></i>
-            <h3>Software funcionando</h3>
-            <span>sobre documentación exhaustiva</span>
-          </div>
-          <div class="val-card">
-            <i class="fa-solid fa-handshake"></i>
-            <h3>Colaboración con el cliente</h3>
-            <span>sobre negociación contractual</span>
-          </div>
-          <div class="val-card">
-            <i class="fa-solid fa-arrows-split-up-and-left"></i>
-            <h3>Respuesta ante el cambio</h3>
-            <span>sobre seguir un plan estricto</span>
-          </div>
+        <button class="cyber-btn-toggle" data-target="solution1">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution1" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Establecer un límite WIP de 3 tareas en la columna de pruebas obliga a los desarrolladores a colaborar en QA en lugar de iniciar nuevas historias de usuario, equilibrando el rendimiento del equipo de punta a punta.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- APARTADO 2: SCRUM -->
-    <section class="content-section" id="scrum">
-      <div class="model-intro-card">
-        <div class="model-badge"><i class="fa-solid fa-rotate"></i> Marco de Trabajo Iterativo</div>
-        <h2>Scrum: Roles, Artefactos y Ceremonias</h2>
+      <!-- CASO 02 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 02</span>
+          <span class="ex-difficulty">Dificultad: Avanzada</span>
+        </div>
+        <h2>Cálculo de Densidad de Defectos (ISO 25010)</h2>
         <p>
-          Scrum es un marco ágil estructurado para gestionar proyectos complejos a través de ciclos cortos llamados Sprints (generalmente de 2 a 4 semanas).
+          Calcula la densidad de defectos de un módulo crítico que contiene 12,500 líneas de código (KLOC) y en el cual el departamento de QA ha registrado 45 incidencias totales durante la fase de pruebas de aceptación.
         </p>
-
-        <!-- Ilustración adaptativa con soporte Lightbox (US-09) -->
-        <div class="illustration-container">
-          <img src="../imagenes/scrum-ciclo.svg" alt="Diagrama de flujo del ciclo de vida de Scrum mostrando Product Backlog, Sprint Planning, Sprint y Retrospectiva" class="zoomable-img" loading="lazy">
-          <figcaption class="img-caption">
-            <i class="fa-solid fa-image"></i> Figura 2.1: Ciclo de trabajo iterativo en Scrum. Haz clic para ampliar.
-          </figcaption>
-        </div>
-
-        <div class="agile-details-grid">
-          <div class="detail-box">
-            <h3><i class="fa-solid fa-user-tie"></i> Roles Clave</h3>
-            <ul>
-              <li><strong>Product Owner:</strong> Gestiona y prioriza el Product Backlog.</li>
-              <li><strong>Scrum Master:</strong> Facilita el proceso y elimina impedimentos.</li>
-              <li><strong>Equipo de Desarrollo:</strong> Auto-organizado y multifuncional.</li>
-            </ul>
-          </div>
-          <div class="detail-box">
-            <h3><i class="fa-solid fa-calendar-days"></i> Ceremonias</h3>
-            <ul>
-              <li><strong>Sprint Planning:</strong> Planificación del incremento.</li>
-              <li><strong>Daily Standup:</strong> Reunión diaria de sincronización (15 min).</li>
-              <li><strong>Sprint Review:</strong> Demostración del incremento.</li>
-              <li><strong>Retrospectiva:</strong> Mejora continua del equipo.</li>
-            </ul>
-          </div>
+        <button class="cyber-btn-toggle" data-target="solution2">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution2" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            La fórmula es <em>Densidad = Total de Defectos / KLOC</em>. Por lo tanto: 45 / 12.5 = <strong>3.6 defectos por KLOC</strong>, lo cual indica un nivel de calidad que requiere refactorización en los módulos más complejos.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- APARTADO 3: KANBAN -->
-    <section class="content-section" id="kanban">
-      <div class="model-intro-card">
-        <div class="model-badge"><i class="fa-solid fa-columns"></i> Gestión Visual de Flujo</div>
-        <h2>Kanban: Tableros y Límites WIP</h2>
+      <!-- CASO 03 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 03</span>
+          <span class="ex-difficulty">Dificultad: Principiante</span>
+        </div>
+        <h2>Estimación de Velocidad y Capacidad en Scrum</h2>
         <p>
-          Kanban se centra en la visualización del flujo de trabajo y la limitación del trabajo en proceso (WIP - Work in Progress) para optimizar el rendimiento y evitar cuellos de botella.
+          Un equipo Scrum planifica un Sprint de 2 semanas con 4 desarrolladores a tiempo completo. Si la velocidad promedio histórica es de 32 Puntos de Historia (Story Points), determina la carga recomendada considerando una disponibilidad del 80% por capacitaciones.
         </p>
-
-        <!-- Ilustración adaptativa con soporte Lightbox (US-09) -->
-        <div class="illustration-container">
-          <img src="../imagenes/kanban-board.svg" alt="Tablero Kanban mostrando columnas de Por hacer, En desarrollo, En pruebas y Completado con tarjetas de tareas" class="zoomable-img" loading="lazy">
-          <figcaption class="img-caption">
-            <i class="fa-solid fa-image"></i> Figura 2.2: Tablero Kanban y control de límites WIP. Haz clic para ampliar.
-          </figcaption>
-        </div>
-
-        <div class="agile-details-grid">
-          <div class="detail-box">
-            <h3><i class="fa-solid fa-eye"></i> Principios Fundamentales</h3>
-            <ul>
-              <li>Visualizar el flujo de trabajo en tarjetas y columnas.</li>
-              <li>Limitar el trabajo en curso (WIP) para reducir la multitarea.</li>
-              <li>Gestionar y medir el flujo continuo de entrega.</li>
-            </ul>
-          </div>
+        <button class="cyber-btn-toggle" data-target="solution3">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution3" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Ajustando la velocidad según la disponibilidad real: <em>32 SP &times; 0.80 = <strong>25.6 SP (aprox. 25 a 26 Story Points)</strong></em>. Esto previene la sobrecarga de trabajo y protege el compromiso del Sprint Goal.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- APARTADO 4: EXTREME PROGRAMMING (XP) -->
-    <section class="content-section" id="xp">
-      <div class="model-intro-card">
-        <div class="model-badge"><i class="fa-solid fa-code-merge"></i> Ingeniería de Software Ágil</div>
-        <h2>Extreme Programming (XP)</h2>
+      <!-- CASO 04 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 04</span>
+          <span class="ex-difficulty">Dificultad: Avanzada</span>
+        </div>
+        <h2>Análisis de Riesgos en el Modelo en Espiral</h2>
         <p>
-          XP promueve la mejora continua de la calidad del software mediante prácticas técnicas rigurosas como TDD (Test-Driven Development), programación en pareja y refactorización constante.
+          Un proyecto de software bancario evalúa la implementación de una nueva pasarela de pagos con alta incertidumbre técnica. Explica por qué el Modelo en Espiral resulta superior al Modelo en Cascada para este escenario.
         </p>
-
-        <!-- Ilustración adaptativa con soporte Lightbox (US-09) -->
-        <div class="illustration-container">
-          <img src="../imagenes/xp-loop.svg" alt="Bucle de desarrollo en Extreme Programming destacando TDD, refactorización y pruebas automatizadas" class="zoomable-img" loading="lazy">
-          <figcaption class="img-caption">
-            <i class="fa-solid fa-image"></i> Figura 2.3: Bucle de calidad técnica en Extreme Programming. Haz clic para ampliar.
-          </figcaption>
+        <button class="cyber-btn-toggle" data-target="solution4">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution4" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            El Modelo en Espiral integra un cuadrante explícito de <strong>Análisis y Mitigación de Riesgos</strong> al inicio de cada iteración, permitiendo construir prototipos operativos de la pasarela para validar la factibilidad antes de comprometer grandes inversiones.
+          </p>
         </div>
+      </div>
 
-        <div class="agile-details-grid">
-          <div class="detail-box">
-            <h3><i class="fa-solid fa-gears"></i> Prácticas Clave</h3>
-            <ul>
-              <li><strong>TDD:</strong> Escribir pruebas antes del código fuente.</li>
-              <li><strong>Pair Programming:</strong> Dos programadores en una misma estación.</li>
-              <li><strong>Refactorización:</strong> Mejora constante de la estructura interna.</li>
-            </ul>
+      <!-- CASO 05 -->
+      <div class="exercise-card">
+        <div class="exercise-meta">
+          <span class="ex-badge">Caso 05</span>
+          <span class="ex-difficulty">Dificultad: Intermedia</span>
+        </div>
+        <h2>Mantenibilidad y Complejidad Ciclomática (ISO 9126)</h2>
+        <p>
+          Un algoritmo de procesamiento de pagos presenta una complejidad ciclomática $V(G) = 18$. Evalúa el impacto de esta métrica en la mantenibilidad del código y propone una estrategia de refactorización.
+        </p>
+        <button class="cyber-btn-toggle" data-target="solution5">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution5" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>
+            Una complejidad superior a 10 indica alto riesgo y baja mantenibilidad. Se recomienda descomponer el algoritmo aplicando el patrón <em>Strategy</em> o dividiendo funciones condicionales anidadas en métodos auxiliares más pequeños y testeables.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ENCABEZADO DE WIZARD / ENCUESTA -->
+    <section class="main-header" style="margin-top: 3.5rem;">
+      <span class="badge-header">ASISTENTE INTELIGENTE &bull; WIZARD</span>
+      <h1>Encuesta de Preferencias Metodológicas y Comparador</h1>
+      <p>
+        Responde este cuestionario interactivo de 4 pasos para evaluar las características de tu proyecto y calcular la coincidencia porcentual hacia Scrum, Kanban, Cascada o Modelo en V.
+      </p>
+    </section>
+
+    <!-- WIZARD CONTENEDOR PRINCIPAL -->
+    <section class="wizard-wrapper" id="wizardWrapper">
+      
+      <!-- Barra de Progreso Visual -->
+      <div class="wizard-progress-bar-container">
+        <div class="wizard-progress-info">
+          <span id="stepIndicator">Paso 1 de 4</span>
+          <span id="progressPercentage">25% Completado</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Formulario de Pasos (Wizard Form) -->
+      <form id="surveyForm" class="wizard-form">
+
+        <!-- PASO 1: Estabilidad de Requisitos -->
+        <div class="wizard-step active" data-step="1">
+          <h3><i class="fa-solid fa-file-contract"></i> 1. Estabilidad de los Requisitos</h3>
+          <p class="step-desc">¿Cómo se comportan los requerimientos del cliente a lo largo del desarrollo?</p>
+          
+          <div class="options-grid">
+            <label class="cyber-option">
+              <input type="radio" name="p1" value="scrum" required>
+              <div class="option-content">
+                <span class="opt-title">Dinámicos y Evolutivos</span>
+                <span class="opt-sub">Los requisitos cambian constantemente según el feedback del usuario.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p1" value="kanban">
+              <div class="option-content">
+                <span class="opt-title">Continuos y Variables</span>
+                <span class="opt-sub">Entran nuevas tareas de forma fluida según la demanda diaria.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p1" value="cascada">
+              <div class="option-content">
+                <span class="opt-title">Rígidos y Estables</span>
+                <span class="opt-sub">Se definen exhaustivamente al inicio y no pueden modificarse.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p1" value="modelov">
+              <div class="option-content">
+                <span class="opt-title">Estables con Validación Temprana de Pruebas</span>
+                <span class="opt-sub">Requisitos claros pero vinculados estrictamente a fases de verificación de QA.</span>
+              </div>
+            </label>
           </div>
         </div>
+
+        <!-- PASO 2: Ritmo de Entrega -->
+        <div class="wizard-step" data-step="2" style="display: none;">
+          <h3><i class="fa-solid fa-stopwatch"></i> 2. Ritmo y Ciclo de Entrega</h3>
+          <p class="step-desc">¿Cada cuánto tiempo se requiere entregar valor funcional al cliente?</p>
+          
+          <div class="options-grid">
+            <label class="cyber-option">
+              <input type="radio" name="p2" value="scrum" required>
+              <div class="option-content">
+                <span class="opt-title">Sprints Iterativos (1 a 4 semanas)</span>
+                <span class="opt-sub">Entregas periódicas de incrementos funcionales probados.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p2" value="kanban">
+              <div class="option-content">
+                <span class="opt-title">Flujo Continuo (Sin ciclos fijos)</span>
+                <span class="opt-sub">Las tareas se liberan a producción apenas se completan.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p2" value="cascada">
+              <div class="option-content">
+                <span class="opt-title">Entrega Única al Final del Proyecto</span>
+                <span class="opt-sub">El sistema completo se despliega al terminar todas las fases.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p2" value="modelov">
+              <div class="option-content">
+                <span class="opt-title">Secuencial con Pruebas Paralelas</span>
+                <span class="opt-sub">Fases estructuradas donde cada etapa de diseño tiene su fase de prueba asociada.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- PASO 3: Estructura del Equipo -->
+        <div class="wizard-step" data-step="3" style="display: none;">
+          <h3><i class="fa-solid fa-users-gear"></i> 3. Estructura y Roles del Equipo</h3>
+          <p class="step-desc">¿Cómo se organiza el equipo de trabajo y su nivel de autonomía?</p>
+          
+          <div class="options-grid">
+            <label class="cyber-option">
+              <input type="radio" name="p3" value="scrum" required>
+              <div class="option-content">
+                <span class="opt-title">Equipos Auto-organizados con Roles Claros</span>
+                <span class="opt-sub">Scrum Master, Product Owner y Desarrolladores colaborando estrechamente.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p3" value="kanban">
+              <div class="option-content">
+                <span class="opt-title">Equipos Flexibles con Límites WIP</span>
+                <span class="opt-sub">Enfoque en optimizar cuellos de botella sin ceremonias rígidas.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p3" value="cascada">
+              <div class="option-content">
+                <span class="opt-title">Departamentos Secuenciales Jerárquicos</span>
+                <span class="opt-sub">Estructura tradicional por fases: Análisis, Diseño, Código y QA aislados.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p3" value="modelov">
+              <div class="option-content">
+                <span class="opt-title">Especialistas en Desarrollo y Verificación</span>
+                <span class="opt-sub">Equipos técnicos con fuerte enfoque en ingeniería de pruebas por niveles.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- PASO 4: Criticidad y Riesgos -->
+        <div class="wizard-step" data-step="4" style="display: none;">
+          <h3><i class="fa-solid fa-triangle-exclamation"></i> 4. Nivel de Incertidumbre y Riesgos</h3>
+          <p class="step-desc">¿Cuál es el nivel de previsibilidad técnica y criticidad del software?</p>
+          
+          <div class="options-grid">
+            <label class="cyber-option">
+              <input type="radio" name="p4" value="scrum" required>
+              <div class="option-content">
+                <span class="opt-title">Medio / Innovador</span>
+                <span class="opt-sub">Se aprende sobre la marcha construyendo prototipos validables.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p4" value="kanban">
+              <div class="option-content">
+                <span class="opt-title">Operativo / Soporte / Mantenimiento</span>
+                <span class="opt-sub">Flujo constante de tareas imprevistas y optimización continua.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p4" value="cascada">
+              <div class="option-content">
+                <span class="opt-title">Alto / Regulado / Crítico</span>
+                <span class="opt-sub">Sistemas donde los errores implican riesgos severos y la planeación es vital.</span>
+              </div>
+            </label>
+
+            <label class="cyber-option">
+              <input type="radio" name="p4" value="modelov">
+              <div class="option-content">
+                <span class="opt-title">Alto con Énfasis en Prevención de Errores</span>
+                <span class="opt-sub">Sistemas complejos que exigen pruebas unitarias, de integración y aceptación formal.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- BOTONES DE NAVEGACIÓN WIZARD -->
+        <div class="wizard-actions">
+          <button type="button" class="cyber-btn-secondary" id="prevBtn" style="display: none;">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+          <button type="button" class="cyber-btn-primary" id="nextBtn">
+            Siguiente <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- SECCIÓN DE RESULTADO DINÁMICO Y COMPARADOR (OCULTA INICIALMENTE) -->
+      <div class="wizard-results-container" id="resultsContainer" style="display: none;">
+        <div class="results-header">
+          <i class="fa-solid fa-square-poll-vertical results-icon"></i>
+          <h2>Resultado del Análisis Metodológico</h2>
+          <p>Basado en las respuestas procesadas por el algoritmo, este es el porcentaje de compatibilidad y comparativa para tu proyecto:</p>
+        </div>
+
+        <!-- Barras de Coincidencia (Comparador) -->
+        <div class="match-bars-wrapper">
+          <div class="match-item">
+            <div class="match-label-info">
+              <span>SCRUM</span>
+              <span id="scoreScrum">0%</span>
+            </div>
+            <div class="match-track"><div class="match-fill fill-scrum" id="fillScrum"></div></div>
+          </div>
+
+          <div class="match-item">
+            <div class="match-label-info">
+              <span>KANBAN</span>
+              <span id="scoreKanban">0%</span>
+            </div>
+            <div class="match-track"><div class="match-fill fill-kanban" id="fillKanban"></div></div>
+          </div>
+
+          <div class="match-item">
+            <div class="match-label-info">
+              <span>MODELO EN CASCADA</span>
+              <span id="scoreCascada">0%</span>
+            </div>
+            <div class="match-track"><div class="match-fill fill-cascada" id="fillCascada"></div></div>
+          </div>
+
+          <div class="match-item">
+            <div class="match-label-info">
+              <span>MODELO EN V</span>
+              <span id="scoreModeloV">0%</span>
+            </div>
+            <div class="match-track"><div class="match-fill fill-modelov" id="fillModeloV"></div></div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Sugerencia Principal -->
+        <div class="winner-card" id="winnerCard">
+          <h3><i class="fa-solid fa-award"></i> Metodología Recomendada: <span id="winnerTitle">---</span></h3>
+          <p id="winnerDesc">---</p>
+        </div>
+
+        <div class="results-actions">
+          <button type="button" class="cyber-btn-primary" id="restartBtn">
+            <i class="fa-solid fa-rotate-right"></i> Realizar Nueva Encuesta
+          </button>
+        </div>
       </div>
+
     </section>
 
-    <!-- ========================================== -->
-    <!-- SECCIÓN EQUIPO DE DESARROLLO (FOOTER CARDS)-->
-    <!-- ========================================== -->
-    <section class="team-section" id="equipo">
-      <div class="team-header">
-        <i class="fa-solid fa-user-gear team-title-icon"></i>
-        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
-      </div>
-      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
-
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
-          <h3>Juan Altomare</h3>
-          <span class="role-badge">Diseñador</span>
-        </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-bug-slash"></i></div>
-          <h3>Arias Morena</h3>
-          <span class="role-badge">Tester</span>
-        </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
-          <h3>Fran Ainara</h3>
-          <span class="role-badge">Diseñadora y Programadora</span>
-        </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-vial-circle-check"></i></div>
-          <h3>Leiva Dana</h3>
-          <span class="role-badge">Tester</span>
-        </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
-          <h3>Resoagli Bautista</h3>
-          <span class="role-badge">Scrum Master y Programador</span>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <!-- ========================================== -->
-  <!-- MODAL LIGHTBOX PARA PANTALLA COMPLETA (US-09)-->
-  <!-- ========================================== -->
-  <div class="lightbox-modal" id="lightboxModal">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar visor">&times;</button>
-    <img src="" alt="Vista ampliada del diagrama ágil" class="lightbox-img" id="lightboxImg">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
 
   <footer class="footer">
     <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Archivo JavaScript Externo -->
-  <script src="metodologias.js"></script>
+  <!-- Script Externo -->
+  <script src="herramientas.js"></script>
 </body>
 </html>

@@ -1,0 +1,268 @@
+/* ========================================================== */
+/* ESTILOS ESPECÍFICOS PARA HERRAMIENTAS Y PRÁCTICA           */
+/* ========================================================== */
+
+/* Ejercicios y Casos Prácticos (US-15) */
+.exercises-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.exercise-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+.exercise-card:hover {
+  border-color: var(--border-cyan);
+  box-shadow: 0 8px 25px var(--cyan-glow);
+}
+
+.exercise-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ex-badge {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: var(--font-title);
+}
+
+.ex-difficulty {
+  font-size: 0.8rem;
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-cyan);
+}
+
+.exercise-card h2 {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.exercise-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.cyber-btn-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn-toggle:hover {
+  background: var(--accent-cyan);
+  color: #05070c;
+  border-color: var(--accent-cyan);
+}
+
+.solution-box {
+  margin-top: 1rem;
+  background: rgba(0, 242, 254, 0.04);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 1.2rem;
+  border-radius: 0 10px 10px 0;
+}
+
+.solution-box h4 {
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-title);
+}
+
+.solution-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Wizard / Encuesta Metodológica */
+.wizard-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(16px);
+  margin-bottom: 4rem;
+}
+
+.wizard-progress-bar-container {
+  margin-bottom: 2.5rem;
+}
+
+.wizard-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 25%;
+  height: 100%;
+  background: var(--accent-cyan);
+  transition: width 0.3s ease;
+}
+
+.wizard-step h3 {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cyber-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  padding: 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cyber-option:hover {
+  border-color: var(--border-cyan);
+  background: rgba(0, 242, 254, 0.03);
+}
+
+.opt-title {
+  display: block;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.opt-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.cyber-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cyber-btn-primary {
+  background: var(--accent-cyan);
+  color: #05070c;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.results-icon {
+  font-size: 2.5rem;
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.match-bars-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.match-label-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.match-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.match-fill {
+  width: 0%;
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.fill-scrum { background: var(--accent-cyan); }
+.fill-kanban { background: var(--accent-purple); }
+.fill-cascada { background: #10b981; }
+.fill-modelov { background: #f59e0b; }
+
+.winner-card {
+  background: rgba(0, 242, 254, 0.05);
+  border: 1px solid var(--border-cyan);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}

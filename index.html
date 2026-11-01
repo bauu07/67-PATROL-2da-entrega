@@ -30,7 +30,7 @@
   </header>
 
   <!-- ========================================== -->
-  <!-- MENÚ LATERAL DESPLEGABLE (DRAWER)          -->
+  <!-- MENÚ LATERAL DESPLEGABLE                   -->
   <!-- ========================================== -->
   <nav class="nav-drawer" id="navDrawer">
     <div class="drawer-header">
@@ -43,24 +43,12 @@
           <span>INICIO</span>
         </a>
       </li>
-
-      <!-- Gestión de la Calidad -->
-      <li class="has-submenu" id="gestionSubmenu">
-        <a href="gestion_calidad/gestion.html" class="submenu-toggle">
+      <li>
+        <a href="gestion_calidad/gestion.html">
           <i class="fa-solid fa-shield-halved"></i>
           <span>GESTIÓN DE LA CALIDAD</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="Tecnicas_aseguramiento/tecnicas.html">
-              <i class="fa-solid fa-list-check"></i>
-              <span>Técnicas de Aseguramiento</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
       <li>
         <a href="procesos_desarrollo/proceso.html">
           <i class="fa-solid fa-code-branch"></i>
@@ -68,91 +56,33 @@
         </a>
       </li>
       <li>
-        <a href="modelos_tradicionales/modelos.html">
-          <i class="fa-solid fa-sitemap"></i>
-          <span>MODELOS TRADICIONALES</span>
-        </a>
-      </li>
-
-      <!-- Metodologías Ágiles -->
-      <li class="has-submenu" id="agilesSubmenu">
-        <a href="metodologias_agiles/metodologias.html" class="submenu-toggle">
+        <a href="metodologias_agiles/metodologias.html">
           <i class="fa-solid fa-bolt"></i>
           <span>METODOLOGÍAS ÁGILES</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
-        <ul class="submenu">
-          <li>
-            <a href="metodologias_agiles/metodologias_detalle.html">
-              <i class="fa-solid fa-diagram-next"></i>
-              <span>Metodologías en Detalle</span>
-            </a>
-          </li>
-        </ul>
       </li>
-
-      <!-- Recursos y Aprendizaje -->
-      <li class="has-submenu" id="recursosSubmenu">
-        <a href="recursos_aprendizajes/recurso.html" class="submenu-toggle">
-          <i class="fa-solid fa-book-bookmark"></i>
-          <span>RECURSOS Y APRENDIZAJE</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
-        </a>
-        <ul class="submenu">
-          <li>
-            <a href="recursos_aprendizajes/recurso.html">
-              <i class="fa-solid fa-spell-check"></i>
-              <span>Glosario A-Z</span>
-            </a>
-          </li>
-          <li>
-            <a href="recursos_aprendizajes/faq.html">
-              <i class="fa-solid fa-circle-question"></i>
-              <span>Preguntas Frecuentes (FAQ)</span>
-            </a>
-          </li>
-          <li>
-            <a href="recursos_aprendizajes/enlaces.html">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Enlaces de Interés</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <!-- Herramientas Interactivas con Submenú -->
-      <li class="has-submenu" id="herramientasSubmenu">
-        <a href="herramientas_interactivas/herramientas.html" class="submenu-toggle">
-          <i class="fa-solid fa-sliders"></i>
-          <span>HERRAMIENTAS INTERACTIVAS</span>
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
-        </a>
-        <ul class="submenu">
-          <li>
-            <a href="herramientas_interactivas/ejercicios.html">
-              <i class="fa-solid fa-laptop-code"></i>
-              <span>Ejercicios y Casos Prácticos</span>
-            </a>
-          </li>
-          <li>
-            <a href="herramientas_interactivas/comparador.html">
-              <i class="fa-solid fa-table-columns"></i>
-              <span>Comparador de Metodologías</span>
-            </a>
-          </li>
-          <li>
-            <a href="herramientas_interactivas/encuesta.html">
-              <i class="fa-solid fa-square-poll-vertical"></i>
-              <span>Encuesta Metodológica</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
       <li>
-        <a href="#equipo">
+        <a href="recursos_aprendizajes/recurso.html">
+          <i class="fa-solid fa-spell-check"></i>
+          <span>RECURSOS Y APRENDIZAJE</span>
+        </a>
+      </li>
+      <li>
+        <a href="herramientas_interactivas/herramientas.html">
+          <i class="fa-solid fa-laptop-code"></i>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="sobre_nosotros/sobre_nosotros.html">
           <i class="fa-solid fa-users"></i>
           <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+      <li>
+        <a href="formulario_contacto/contacto.html">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>CONTACTO</span>
         </a>
       </li>
     </ul>
@@ -171,7 +101,7 @@
       </p>
     </section>
 
-    <!-- DIRECTORIO PRINCIPAL / TARJETAS DE ACCESO RÁPIDO -->
+    <!-- DIRECTORIO PRINCIPAL -->
     <section class="directory-section">
       <h2>DIRECTORIO PRINCIPAL // ÍNDICE DE CONTENIDOS</h2>
       
@@ -186,12 +116,6 @@
           <i class="fa-solid fa-code-branch"></i>
           <h3>Procesos de Desarrollo</h3>
           <p>Fases del ciclo de vida del software y buenas prácticas de ingeniería.</p>
-        </a>
-
-        <a href="modelos_tradicionales/modelos.html" class="directory-card">
-          <i class="fa-solid fa-sitemap"></i>
-          <h3>Modelos Tradicionales</h3>
-          <p>Modelo en cascada, evolutivo y en V para proyectos estructurados.</p>
         </a>
 
         <a href="metodologias_agiles/metodologias.html" class="directory-card">
@@ -214,7 +138,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN EQUIPO DE DESARROLLO -->
+    <!-- SECCIÓN EQUIPO DE DESARROLLO (ENLAZADA A SOBRE NOSOTROS) -->
     <section class="team-section" id="equipo">
       <div class="team-header">
         <i class="fa-solid fa-user-gear team-title-icon"></i>
@@ -223,31 +147,47 @@
       <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
 
       <div class="team-grid">
-        <div class="team-card">
+        <!-- Juan Altomare -->
+        <a href="sobre_nosotros/sobre_nosotros.html#juan-altomare" class="team-card" style="text-decoration: none;">
           <div class="icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
           <h3>Juan Altomare</h3>
           <span class="role-badge">Diseñador</span>
-        </div>
-        <div class="team-card">
+        </a>
+
+        <!-- Arias Morena -->
+        <a href="sobre_nosotros/sobre_nosotros.html#arias-morena" class="team-card" style="text-decoration: none;">
           <div class="icon-wrapper"><i class="fa-solid fa-bug-slash"></i></div>
           <h3>Arias Morena</h3>
           <span class="role-badge">Tester</span>
-        </div>
-        <div class="team-card">
+        </a>
+
+        <!-- Fran Ainara -->
+        <a href="sobre_nosotros/sobre_nosotros.html#fran-ainara" class="team-card" style="text-decoration: none;">
           <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
           <h3>Fran Ainara</h3>
           <span class="role-badge">Diseñadora y Programadora</span>
-        </div>
-        <div class="team-card">
+        </a>
+
+        <!-- Leiva Dana -->
+        <a href="sobre_nosotros/sobre_nosotros.html#leiva-dana" class="team-card" style="text-decoration: none;">
           <div class="icon-wrapper"><i class="fa-solid fa-vial-circle-check"></i></div>
           <h3>Leiva Dana</h3>
           <span class="role-badge">Tester</span>
-        </div>
-        <div class="team-card">
+        </a>
+
+        <!-- Resoagli Bautista -->
+        <a href="sobre_nosotros/sobre_nosotros.html#resoagli-bautista" class="team-card" style="text-decoration: none;">
           <div class="icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
           <h3>Resoagli Bautista</h3>
           <span class="role-badge">Scrum Master y Programador</span>
-        </div>
+        </a>
+
+        <!-- Minitarjeta de Acceso al Formulario de Contacto -->
+        <a href="formulario_contacto/contacto.html" class="team-card contact-redirect-card" style="text-decoration: none;">
+          <div class="icon-wrapper"><i class="fa-solid fa-paper-plane"></i></div>
+          <h3>Contacto</h3>
+          <span class="role-badge">Enviar Consulta</span>
+        </a>
       </div>
     </section>
   </main>
