@@ -1,207 +1,176 @@
-/* ========================================================== */
-/* SCRIPT DE HERRAMIENTAS Y PRÁCTICA (herramientas.js)        */
-/* ========================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- 1. Control del Menú Lateral (Drawer Móvil) ---
+  // 1. Toggle del Menú Lateral (Drawer) para móviles
   const menuToggle = document.getElementById('menuToggle');
-  const closeDrawer = document.getElementById('closeDrawer');
   const navDrawer = document.getElementById('navDrawer');
+  const closeDrawer = document.getElementById('closeDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  if (menuToggle && navDrawer) {
-    menuToggle.addEventListener('click', () => {
-      navDrawer.classList.add('open');
-      if (drawerOverlay) drawerOverlay.classList.add('active');
+  function toggleMenu() {
+    navDrawer.classList.toggle('open');
+    drawerOverlay.classList.toggle('active');
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+  if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
+
+  // 2. US-08: Tabla de Contenidos Dinámica Minimizable (TOC)
+  const tocToggleBtn = document.getElementById('tocToggleBtn');
+  const tocBody = document.getElementById('tocBody');
+  const tocToggleIcon = document.getElementById('tocToggleIcon');
+
+  if (tocToggleBtn) {
+    tocToggleBtn.addEventListener('click', () => {
+      if (tocBody.style.display === 'none') {
+        tocBody.style.display = 'flex';
+        tocToggleIcon.className = 'fa-solid fa-chevron-left';
+      } else {
+        tocBody.style.display = 'none';
+        tocToggleIcon.className = 'fa-solid fa-chevron-down';
+      }
     });
   }
 
-  if (closeDrawer && navDrawer) {
-    closeDrawer.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      if (drawerOverlay) drawerOverlay.classList.remove('active');
-    });
-  }
-
-  if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('active');
-    });
-  }
-
-  // --- 2. Desplegable de Soluciones de Ejercicios ---
-  const toggleButtons = document.querySelectorAll('.cyber-btn-toggle');
-  
-  toggleButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const solutionBox = document.getElementById(targetId);
-
-      if (solutionBox) {
-        if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
-          solutionBox.style.display = 'block';
-          btn.innerHTML = '<i class="fa-solid fa-code"></i> Ocultar Solución';
-        } else {
-          solutionBox.style.display = 'none';
-          btn.innerHTML = '<i class="fa-solid fa-code"></i> Ver Solución Técnica';
-        }
+  // Desplazamiento suave (smooth scroll) para el TOC
+  const tocLinks = document.querySelectorAll('.toc-body a');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // --- 3. Lógica del Asistente / Wizard de Encuesta ---
-  const surveyForm = document.getElementById('surveyForm');
-  const steps = document.querySelectorAll('.wizard-step');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const stepIndicator = document.getElementById('stepIndicator');
-  const progressPercentage = document.getElementById('progressPercentage');
-  const progressFill = document.getElementById('progressFill');
-  const resultsContainer = document.getElementById('resultsContainer');
-  const restartBtn = document.getElementById('restartBtn');
+  // 3. US-09: Visor Lightbox Modal para Ampliación de Gráficos (Retina/Full HD)
+  const zoomableImgs = document.querySelectorAll('.zoomable-img');
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
 
-  let currentStep = 1;
-  const totalSteps = steps.length;
-
-  function updateWizard() {
-    steps.forEach(step => {
-      const stepNum = parseInt(step.getAttribute('data-step'));
-      if (stepNum === currentStep) {
-        step.style.display = 'block';
-      } else {
-        step.style.display = 'none';
-      }
+  zoomableImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxModal.classList.add('active');
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt;
     });
+  });
 
-    // Actualizar barra de progreso
-    const percentage = (currentStep / totalSteps) * 100;
-    if (stepIndicator) stepIndicator.textContent = `Paso ${currentStep} de ${totalSteps}`;
-    if (progressPercentage) progressPercentage.textContent = `${Math.round(percentage)}% Completado`;
-    if (progressFill) progressFill.style.width = `${percentage}%`;
-
-    // Mostrar/Ocultar botón Anterior
-    if (currentStep === 1) {
-      if (prevBtn) prevBtn.style.display = 'none';
-    } else {
-      if (prevBtn) prevBtn.style.display = 'inline-flex';
-    }
-
-    // Cambiar texto del botón Siguiente en el último paso
-    if (currentStep === totalSteps) {
-      if (nextBtn) nextBtn.innerHTML = 'Calcular Resultados <i class="fa-solid fa-square-poll-vertical"></i>';
-    } else {
-      if (nextBtn) nextBtn.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
-    }
+  function closeLightbox() {
+    if (lightboxModal) lightboxModal.classList.remove('active');
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      // Validar que se haya seleccionado una opción en el paso actual
-      const currentStepEl = document.querySelector(`.wizard-step[data-step="${currentStep}"]`);
-      const selectedOption = currentStepEl.querySelector('input[type="radio"]:checked');
-
-      if (!selectedOption) {
-        alert('Por favor, selecciona una opción antes de continuar.');
-        return;
-      }
-
-      if (currentStep < totalSteps) {
-        currentStep++;
-        updateWizard();
-        window.scrollTo({ top: surveyForm.offsetTop - 100, behavior: 'smooth' });
-      } else {
-        // Fin de la encuesta: Calcular resultados y mostrar comparador
-        calcularResultados();
-      }
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
     });
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        currentStep--;
-        updateWizard();
-        window.scrollTo({ top: surveyForm.offsetTop - 100, behavior: 'smooth' });
-      }
-    });
-  }
+  // 4. US-10: Pestañas Temáticas de Scrum
+  const scrumBtns = document.querySelectorAll('.scrum-tab-btn');
+  const scrumContents = document.querySelectorAll('.scrum-tab-content');
 
-  function calcularResultados() {
-    const formData = new FormData(surveyForm);
-    let scores = { scrum: 0, kanban: 0, cascada: 0, modelov: 0 };
+  scrumBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-scrum');
 
-    for (let value of formData.values()) {
-      if (scores[value] !== undefined) {
-        scores[value] += 25; // Cada una de las 4 preguntas aporta hasta un 25% si coincide
-      }
-    }
+      scrumBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    // Ocultar formulario y mostrar contenedor de resultados
-    if (surveyForm) surveyForm.style.display = 'none';
-    if (resultsContainer) resultsContainer.style.display = 'block';
-
-    // Rellenar barras animadas
-    document.getElementById('scoreScrum').textContent = `${scores.scrum}%`;
-    document.getElementById('scoreKanban').textContent = `${scores.kanban}%`;
-    document.getElementById('scoreCascada').textContent = `${scores.cascada}%`;
-    document.getElementById('scoreModeloV').textContent = `${scores.modelov}%`;
-
-    setTimeout(() => {
-      document.getElementById('fillScrum').style.width = `${scores.scrum}%`;
-      document.getElementById('fillKanban').style.width = `${scores.kanban}%`;
-      document.getElementById('fillCascada').style.width = `${scores.cascada}%`;
-      document.getElementById('fillModeloV').style.width = `${scores.modelov}%`;
-    }, 150);
-
-    // Determinar ganador
-    let ganador = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-    const winnerTitle = document.getElementById('winnerTitle');
-    const winnerDesc = document.getElementById('winnerDesc');
-
-    const descripciones = {
-      scrum: {
-        title: "Scrum Framework",
-        desc: "Ideal para tu proyecto debido a la flexibilidad de requisitos, entregas iterativas en Sprints cortos y alta colaboración autónoma del equipo."
-      },
-      kanban: {
-        title: "Método Kanban",
-        desc: "Se alinea perfectamente con flujos continuos, gestión visual de tareas y control riguroso de cuellos de botella mediante límites WIP."
-      },
-      cascada: {
-        title: "Modelo en Cascada",
-        desc: "Adecuado para proyectos altamente regulados con requisitos estrictos, previsibles y una secuencia estructurada por fases cerradas."
-      },
-      modelov: {
-        title: "Modelo en V",
-        desc: "Perfecto para entornos donde la verificación y validación de pruebas en paralelo son cruciales para mitigar riesgos técnicos complejos."
-      }
-    };
-
-    if (winnerTitle && winnerDesc && descripciones[ganador]) {
-      winnerTitle.textContent = descripciones[ganador].title;
-      winnerDesc.textContent = descripciones[ganador].desc;
-    }
-
-    window.scrollTo({ top: resultsContainer.offsetTop - 100, behavior: 'smooth' });
-  }
-
-  if (restartBtn) {
-    restartBtn.addEventListener('click', () => {
-      surveyForm.reset();
-      currentStep = 1;
-      if (resultsContainer) resultsContainer.style.display = 'none';
-      if (surveyForm) surveyForm.style.display = 'block';
-      
-      // Resetear barras
-      ['fillScrum', 'fillKanban', 'fillCascada', 'fillModeloV'].forEach(id => {
-        document.getElementById(id).style.width = '0%';
+      scrumContents.forEach(content => {
+        content.style.display = (content.id === targetId) ? 'block' : 'none';
       });
-
-      updateWizard();
-      window.scrollTo({ top: surveyForm.offsetTop - 100, behavior: 'smooth' });
     });
+  });
+
+  // US-10: Cronograma Interactivo del Sprint
+  const timelineBtns = document.querySelectorAll('.timeline-btn');
+  const timelineDisplay = document.getElementById('timelineDisplay');
+
+  timelineBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      timelineBtns.forEach(b => b.style.borderColor = 'var(--border-glass)');
+      btn.style.borderColor = 'var(--accent-cyan)';
+      const infoText = btn.getAttribute('data-info');
+      if (timelineDisplay) {
+        timelineDisplay.innerHTML = infoText;
+      }
+    });
+  });
+
+  // 5. US-11: Simulación del Tablero Kanban y Límite WIP (Drag & Drop + Botones)
+  window.allowDrop = function(ev) {
+    ev.preventDefault();
+  };
+
+  window.drag = function(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  };
+
+  window.drop = function(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const draggedCard = document.getElementById(data);
+    const targetColumn = ev.target.closest('.kanban-column');
+
+    if (targetColumn && draggedCard) {
+      if (targetColumn.id === 'colInProgress') {
+        const currentWip = document.getElementById('colInProgress').querySelectorAll('.kanban-card').length;
+        if (currentWip >= 2 && draggedCard.parentElement.id !== 'colInProgress') {
+          showWipWarning();
+          return;
+        }
+      }
+      targetColumn.appendChild(draggedCard);
+      updateKanbanCounts();
+    }
+  };
+
+  window.moveCard = function(cardId, targetColId) {
+    const card = document.getElementById(cardId);
+    const targetCol = document.getElementById(targetColId);
+
+    if (card && targetCol) {
+      if (targetColId === 'colInProgress') {
+        const currentWip = targetCol.querySelectorAll('.kanban-card').length;
+        if (currentWip >= 2 && card.parentElement.id !== 'colInProgress') {
+          showWipWarning();
+          return;
+        }
+      }
+      targetCol.appendChild(card);
+      updateKanbanCounts();
+    }
+  };
+
+  function updateKanbanCounts() {
+    const countTodo = document.getElementById('colTodo').querySelectorAll('.kanban-card').length;
+    const countInProgress = document.getElementById('colInProgress').querySelectorAll('.kanban-card').length;
+    const countDone = document.getElementById('colDone').querySelectorAll('.kanban-card').length;
+
+    document.getElementById('countTodo').textContent = countTodo;
+    document.getElementById('countInProgress').textContent = countInProgress;
+    document.getElementById('countDone').textContent = countDone;
+
+    const wipWarning = document.getElementById('wipWarning');
+    if (countInProgress < 2 && wipWarning) {
+      wipWarning.style.display = 'none';
+    }
   }
 
+  function showWipWarning() {
+    const wipWarning = document.getElementById('wipWarning');
+    if (wipWarning) {
+      wipWarning.style.display = 'block';
+      setTimeout(() => {
+        wipWarning.style.display = 'none';
+      }, 4000);
+    }
+  }
+
+  updateKanbanCounts();
 });

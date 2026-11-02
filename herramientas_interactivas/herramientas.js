@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Toggle del Menú Lateral (Drawer)
+  // 1. Toggle del Menú Lateral (Drawer) para celulares
   const menuToggle = document.getElementById('menuToggle');
   const navDrawer = document.getElementById('navDrawer');
   const closeDrawer = document.getElementById('closeDrawer');
@@ -14,6 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
   if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
+  // Cerrar menú automáticamente al seleccionar una opción en celular
+  const drawerLinks = document.querySelectorAll('.drawer-menu a');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navDrawer.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
+
   // 2. Toggle para ver solución de Casos Prácticos (US-15)
   const toggleBtns = document.querySelectorAll('.cyber-btn-toggle');
   toggleBtns.forEach(btn => {
@@ -21,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetId = btn.getAttribute('data-target');
       const solutionBox = document.getElementById(targetId);
       
-      if (solutionBox.style.display === 'none') {
+      if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
         solutionBox.style.display = 'block';
         btn.innerHTML = '<i class="fa-solid fa-code"></i> Ocultar Solución Técnica';
       } else {
@@ -31,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Lógica del Wizard / Encuesta Metodológica y Comparador
+  // 3. Lógica del Wizard / Encuesta Metodológica y Comparador (Scrum, Kanban, Cascada, Modelo en V)
   const steps = document.querySelectorAll('.wizard-step');
   const nextBtn = document.getElementById('nextBtn');
   const prevBtn = document.getElementById('prevBtn');
@@ -79,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentStep < totalSteps - 1) {
         currentStep++;
         updateWizard();
+        // Desplazarse suavemente arriba del Wizard en celulares al cambiar de paso
+        document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         calculateResults();
       }
@@ -90,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentStep > 0) {
         currentStep--;
         updateWizard();
+        document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }
@@ -156,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const winnerDesc = document.getElementById('winnerDesc');
     if (winnerTitle) winnerTitle.textContent = winner;
     if (winnerDesc) winnerDesc.textContent = desc;
+
+    document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   if (restartBtn) {
@@ -165,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resultsContainer.style.display = 'none';
       currentStep = 0;
       updateWizard();
+      document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   }
 

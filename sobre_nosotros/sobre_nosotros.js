@@ -1,5 +1,5 @@
 /* ========================================================== */
-/* TERMINAL LOGIC CONTROLLER (sobre_nosotros.js)              */
+/* SCRIPT DE SOBRE NOSOTROS (sobre_nosotros.js)               */
 /* ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,30 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDrawer = document.getElementById('navDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  const openMenu = () => {
-    navDrawer.classList.add('open');
-    drawerOverlay.classList.add('active');
-  };
-
-  const closeMenu = () => {
-    navDrawer.classList.remove('open');
-    drawerOverlay.classList.remove('active');
-  };
-
-  if (menuToggle && closeDrawer && drawerOverlay) {
-    menuToggle.addEventListener('click', openMenu);
-    closeDrawer.addEventListener('click', closeMenu);
-    drawerOverlay.addEventListener('click', closeMenu);
+  if (menuToggle && navDrawer) {
+    menuToggle.addEventListener('click', () => {
+      navDrawer.classList.add('open');
+      if (drawerOverlay) drawerOverlay.classList.add('active');
+    });
   }
 
-  // Efecto interactivo de consola en las tarjetas al pasar el cursor
-  const cards = document.querySelectorAll('.profile-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.borderColor = 'var(--term-cyan)';
+  if (closeDrawer && navDrawer) {
+    closeDrawer.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      if (drawerOverlay) drawerOverlay.classList.remove('active');
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.borderColor = 'var(--term-border)';
+  }
+
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('active');
     });
-  });
+  }
 });

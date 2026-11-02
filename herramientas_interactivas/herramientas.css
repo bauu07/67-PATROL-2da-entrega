@@ -2,20 +2,18 @@
 /* ESTILOS ESPECÍFICOS PARA HERRAMIENTAS Y PRÁCTICA           */
 /* ========================================================== */
 
-/* Ejercicios y Casos Prácticos (US-15) */
 .exercises-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .exercise-card {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 2rem;
-  backdrop-filter: blur(16px);
   transition: all 0.3s ease;
 }
 
@@ -28,51 +26,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .ex-badge {
+  font-size: 0.75rem;
   color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid var(--border-cyan);
+  padding: 3px 10px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 0.85rem;
-  font-family: var(--font-title);
 }
 
 .ex-difficulty {
   font-size: 0.8rem;
-  background: rgba(0, 242, 254, 0.1);
-  color: var(--accent-cyan);
-  padding: 4px 10px;
-  border-radius: 12px;
-  border: 1px solid var(--border-cyan);
+  color: var(--text-muted);
 }
 
 .exercise-card h2 {
   font-family: var(--font-title);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: #fff;
   margin-bottom: 0.75rem;
 }
 
 .exercise-card p {
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
   font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* BOTONES CORREGIDOS: Tamaño compacto ajustado al texto mediante fit-content */
+.cyber-btn-toggle, 
+.cyber-btn-primary, 
+.cyber-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .cyber-btn-toggle {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass);
   color: var(--text-main);
-  padding: 10px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  transition: all 0.3s ease;
 }
 
 .cyber-btn-toggle:hover {
@@ -82,7 +87,7 @@
 }
 
 .solution-box {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   background: rgba(0, 242, 254, 0.04);
   border-left: 3px solid var(--accent-cyan);
   padding: 1.2rem;
@@ -101,7 +106,7 @@
   margin: 0;
 }
 
-/* Wizard / Encuesta Metodológica */
+/* WIZARD / ENCUESTA METODOLÓGICA */
 .wizard-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
@@ -197,20 +202,12 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass);
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
 }
 
 .cyber-btn-primary {
   background: var(--accent-cyan);
   color: #05070c;
   border: none;
-  padding: 10px 24px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 700;
 }
 
 .results-header {
@@ -265,4 +262,32 @@
   padding: 1.5rem;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+/* ========================================================== */
+/* RESPONSIVE DESIGN PARA CELULARES                           */
+/* ========================================================== */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem 0.75rem;
+  }
+  .exercise-card {
+    padding: 1.25rem;
+  }
+  .cyber-btn-toggle, 
+  .cyber-btn-primary, 
+  .cyber-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .wizard-wrapper {
+    padding: 1.25rem;
+  }
+  .wizard-actions {
+    flex-direction: column-reverse;
+    gap: 0.8rem;
+  }
+  .wizard-actions button {
+    width: 100%;
+  }
 }

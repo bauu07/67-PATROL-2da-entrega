@@ -73,7 +73,7 @@
         </a>
       </li>
       <li>
-        <a href="../sobre_nosotros/sobre_nosotros.html" >
+        <a href="../sobre_nosotros/sobre_nosotros.html">
           <i class="fa-solid fa-users"></i>
           <span>SOBRE NOSOTROS</span>
         </a>
@@ -93,60 +93,98 @@
   <!-- ========================================== -->
   <main class="container">
     
-    <!-- SECCIÓN 1: CICLO DE VIDA DEL SOFTWARE (SDLC) -->
+    <!-- US-05: CICLO DE VIDA DEL SOFTWARE (SDLC) -->
     <section class="hero-section">
-      <span class="badge-header">QA &amp; SDLC FRAMEWORK</span>
-      <h1>Ciclo de Vida del Desarrollo de Software</h1>
+      <span class="badge-header">US-05 &bull; QA &amp; SDLC FRAMEWORK</span>
+      <h1>Ciclo de Vida del Desarrollo de Software (SDLC)</h1>
       <p>
         El SDLC (Software Development Life Cycle) define la estructura metodológica empleada en la construcción, 
-        evaluación y entrega de software de alta calidad dentro de 67 Patrol.
+        evaluación, control de calidad y entrega de software robusto dentro de 67 Patrol.
       </p>
     </section>
 
-    <!-- Directorio / Timeline SDLC -->
+    <!-- US-05: Línea de tiempo interactiva y responsiva (Timeline) -->
     <section class="directory-section">
-      <h2>Fases del Proceso de Desarrollo</h2>
-      <div class="directory-grid">
-        <article class="directory-card">
-          <i class="fa-solid fa-file-lines"></i>
-          <h3>01. Análisis de Requisitos</h3>
-          <p>Relevamiento y documentación formal de requisitos funcionales y no funcionales. Criterios de aceptación iniciales.</p>
+      <h2>Línea de Tiempo del SDLC</h2>
+      <p class="section-desc">Haz clic o desplázate sobre cada fase para iluminar el flujo secuencial de trabajo:</p>
+
+      <div class="sdlc-timeline" id="sdlcTimeline">
+        <article class="timeline-step" id="step-req">
+          <div class="step-badge">01</div>
+          <div class="step-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="step-content">
+            <h3>01. Requisitos</h3>
+            <p>Relevamiento y documentación formal de requisitos funcionales y no funcionales. Definición de SRS y criterios de aceptación.</p>
+          </div>
         </article>
 
-        <article class="directory-card">
-          <i class="fa-solid fa-sitemap"></i>
-          <h3>02. Diseño de Arquitectura</h3>
-          <p>Modelado de arquitectura del software, esquemas de bases de datos, diagramas UML y maquetación de interfaces.</p>
+        <article class="timeline-step" id="step-design">
+          <div class="step-badge">02</div>
+          <div class="step-icon"><i class="fa-solid fa-sitemap"></i></div>
+          <div class="step-content">
+            <h3>02. Diseño</h3>
+            <p>Modelado de la arquitectura de software, diagramas UML, esquemas de bases de datos y prototipado de interfaces (UI/UX).</p>
+          </div>
         </article>
 
-        <article class="directory-card">
-          <i class="fa-solid fa-code"></i>
-          <h3>03. Desarrollo e Implementación</h3>
-          <p>Escritura del código fuente siguiendo buenas prácticas, control de versiones con Git y revisión de código.</p>
+        <article class="timeline-step" id="step-dev">
+          <div class="step-badge">03</div>
+          <div class="step-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="step-content">
+            <h3>03. Desarrollo</h3>
+            <p>Escritura del código fuente siguiendo buenas prácticas de ingeniería, control de versiones (Git) y revisiones de código.</p>
+          </div>
         </article>
 
-        <article class="directory-card">
-          <i class="fa-solid fa-vial"></i>
-          <h3>04. Pruebas y Verificación (QA)</h3>
-          <p>Ejecución intensiva de pruebas funcionales, de regresión e integración para asegurar la calidad antes de liberar.</p>
+        <article class="timeline-step" id="step-qa">
+          <div class="step-badge">04</div>
+          <div class="step-icon"><i class="fa-solid fa-vial"></i></div>
+          <div class="step-content">
+            <h3>04. Pruebas (QA)</h3>
+            <p>Ejecución intensiva de pruebas unitarias, de integración, funcionales y de aceptación para garantizar la calidad del software.</p>
+          </div>
         </article>
 
-        <article class="directory-card">
-          <i class="fa-solid fa-rocket"></i>
-          <h3>05. Despliegue y Entrega</h3>
-          <p>Liberación controlada en entornos de producción mediante pipelines y monitoreo en tiempo real del rendimiento.</p>
+        <article class="timeline-step" id="step-deploy">
+          <div class="step-badge">05</div>
+          <div class="step-icon"><i class="fa-solid fa-rocket"></i></div>
+          <div class="step-content">
+            <h3>05. Despliegue</h3>
+            <p>Liberación controlada del software en entorno de producción mediante pipelines integrados y monitoreo activo.</p>
+          </div>
         </article>
 
-        <article class="directory-card">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-          <h3>06. Mantenimiento y Evolución</h3>
-          <p>Atención a incidencias de producción, aplicación de parches de seguridad y actualización continua de funcionalidades.</p>
+        <article class="timeline-step" id="step-maint">
+          <div class="step-badge">06</div>
+          <div class="step-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <div class="step-content">
+            <h3>06. Mantenimiento</h3>
+            <p>Atención a incidencias en producción, aplicación de parches de seguridad y actualización evolutiva de requerimientos.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <!-- SECCIÓN 2: MODELOS TRADICIONALES E ILUSTRACIONES (US-06 & US-07) -->
-    <section class="hero-section" style="margin-top: 5rem;">
+    <!-- MÉTRICAS Y BUENAS PRÁCTICAS: VERIFICACIÓN VS VALIDACIÓN -->
+    <section class="hero-section" style="margin-top: 4rem;">
+      <span class="badge-header">INGENIERÍA DE SOFTWARE &bull; QA</span>
+      <h2>Verificación vs. Validación en el SDLC</h2>
+      <p>Diferenciación conceptual crítica para asegurar la máxima calidad del software.</p>
+    </section>
+
+    <div class="directory-grid" style="margin-top: 1.5rem;">
+      <article class="directory-card">
+        <h3><i class="fa-solid fa-circle-check" style="color: var(--accent-cyan, #00f2fe);"></i> Verificación ("¿Construimos bien el producto?")</h3>
+        <p>Comprueba que el software cumpla las especificaciones de diseño. Incluye revisiones estáticas de código, inspecciones técnicas y análisis ciclomático.</p>
+      </article>
+      <article class="directory-card">
+        <h3><i class="fa-solid fa-shield-halved" style="color: var(--accent-purple, #9d4edd);"></i> Validación ("¿Construimos el producto correcto?")</h3>
+        <p>Garantiza que el software satisface las necesidades reales y expectativas del usuario final mediante pruebas de aceptación y retroalimentación.</p>
+      </article>
+    </div>
+
+    <!-- US-06 & US-07: MODELOS TRADICIONALES E ILUSTRACIONES -->
+    <section class="hero-section" style="margin-top: 5rem;" id="modelosTradicionales">
       <span class="badge-header">US-06 &amp; US-07 &bull; MODELOS TRADICIONALES</span>
       <h1>Modelos Tradicionales de Desarrollo</h1>
       <p>
@@ -154,8 +192,8 @@
       </p>
     </section>
 
-    <!-- Navegación interna por pestañas (US-06) -->
-    <nav class="subnav-container">
+    <!-- US-06 [JS]: Navegación interna por sub-secciones (Pestañas) -->
+    <nav class="subnav-container" aria-label="Navegación de Modelos Tradicionales">
       <button class="tab-btn active" data-target="cascada">
         <i class="fa-solid fa-water"></i> Modelo en Cascada
       </button>
@@ -176,31 +214,32 @@
           Es el enfoque clásico del ciclo de vida del software. Plantea una ejecución estrictamente lineal y secuencial donde cada fase debe completarse y validarse mediante entregables formales antes de iniciar la siguiente.
         </p>
 
-        <!-- Contenedor Adaptable de Ilustración (US-07) -->
-        <div class="illustration-container">
+        <!-- US-07 [Diseño/CSS]: Contenedor Adaptable de Ilustración con Pie de Foto explicativo y accesibilidad WCAG -->
+        <figure class="illustration-container">
           <img src="../imagenes/cascada.jpg" alt="Diagrama esquemático del Modelo en Cascada mostrando el flujo secuencial desde Requisitos hasta Mantenimiento" class="zoomable-img" loading="lazy">
           <figcaption class="img-caption">
             <i class="fa-solid fa-image"></i> Figura 1.1: Esquema secuencial del Modelo en Cascada. Haz clic en la imagen para ampliar en pantalla completa.
           </figcaption>
-        </div>
+        </figure>
       </div>
 
+      <!-- US-06 [Diseño/CSS]: Bloques comparativos Ventajas vs. Desventajas (Verde/Rojo) -->
       <div class="directory-grid comparison-grid">
         <div class="directory-card comp-pro">
           <h3><i class="fa-solid fa-circle-check"></i> Ventajas</h3>
           <ul class="comp-list">
-            <li>Estructura clara y predecible de gestionar debido a la rigidez.</li>
-            <li>Documentación exhaustiva generada en cada fase.</li>
-            <li>Ideal para proyectos con requisitos estables y claros.</li>
+            <li>Estructura clara y predecible de gestionar debido a su rigidez metodológica.</li>
+            <li>Documentación exhaustiva generada en cada una de las fases formales.</li>
+            <li>Ideal para proyectos con requisitos estables, claros y poco propensos al cambio.</li>
           </ul>
         </div>
 
         <div class="directory-card comp-con">
           <h3><i class="fa-solid fa-triangle-exclamation"></i> Desventajas</h3>
           <ul class="comp-list">
-            <li>Inflexibilidad extrema ante cambios en fases avanzadas.</li>
-            <li>Pruebas de software tardías hasta el final del ciclo.</li>
-            <li>Baja participación activa del cliente durante el proceso.</li>
+            <li>Inflexibilidad extrema ante modificaciones de alcance en fases avanzadas.</li>
+            <li>Pruebas de software pospuestas hasta las etapas finales del ciclo.</li>
+            <li>Baja participación activa del cliente durante el proceso de construcción.</li>
           </ul>
         </div>
       </div>
@@ -212,31 +251,33 @@
         <div class="model-badge"><i class="fa-solid fa-v"></i> Validación y Verificación</div>
         <h2>Modelo en V (V-Model)</h2>
         <p>
-          Evolución directa del modelo en cascada que enfatiza rigurosamente el control de calidad, asociando cada fase de diseño con su correspondiente etapa de pruebas.
+          Evolución directa del modelo en cascada que enfatiza rigurosamente el control de calidad, asociando de forma simétrica cada fase de diseño con su correspondiente etapa de pruebas.
         </p>
 
-        <div class="illustration-container">
+        <!-- US-07: Ilustración adaptable Modelo en V -->
+        <figure class="illustration-container">
           <img src="../imagenes/V.jpg" alt="Diagrama en forma de V que correlaciona las fases de diseño técnico descendente con los niveles de pruebas ascendentes" class="zoomable-img" loading="lazy">
           <figcaption class="img-caption">
             <i class="fa-solid fa-image"></i> Figura 1.2: Relación simétrica entre desarrollo y pruebas en el Modelo en V.
           </figcaption>
-        </div>
+        </figure>
       </div>
 
+      <!-- US-06: Bloques comparativos Ventajas vs. Desventajas -->
       <div class="directory-grid comparison-grid">
         <div class="directory-card comp-pro">
           <h3><i class="fa-solid fa-circle-check"></i> Ventajas</h3>
           <ul class="comp-list">
-            <li>Planificación temprana de casos de prueba de QA.</li>
-            <li>Detección precoz de defectos antes de programar.</li>
+            <li>Planificación temprana y estructurada de los casos de prueba de QA.</li>
+            <li>Detección precoz de defectos antes de iniciar la fase de codificación.</li>
           </ul>
         </div>
 
         <div class="directory-card comp-con">
           <h3><i class="fa-solid fa-triangle-exclamation"></i> Desventajas</h3>
           <ul class="comp-list">
-            <li>Poco adaptable a modificaciones de alcance dinámicas.</li>
-            <li>Ausencia de prototipos funcionales intermedios.</li>
+            <li>Poco adaptable a modificaciones de requerimientos dinámicos del cliente.</li>
+            <li>Ausencia de prototipos funcionales intermedios durante el trayecto.</li>
           </ul>
         </div>
       </div>
@@ -248,42 +289,45 @@
         <div class="model-badge"><i class="fa-solid fa-layer-group"></i> Evolutivo e Incremental</div>
         <h2>Modelo Iterativo e Incremental</h2>
         <p>
-          Divide el proyecto en pequeños bloques o incrementos funcionales. En cada ciclo se entrega una versión operativa ampliada del producto.
+          Divide el proyecto en pequeños bloques o incrementos funcionales. En cada iteración se entrega una versión operativa ampliada y refinada del producto.
         </p>
 
-        <div class="illustration-container">
+        <!-- US-07: Ilustración adaptable Modelo Incremental -->
+        <figure class="illustration-container">
           <img src="../imagenes/incremental.png" alt="Ilustración conceptual de incrementos sucesivos de software agregando funcionalidad iterativamente" class="zoomable-img" loading="lazy">
           <figcaption class="img-caption">
             <i class="fa-solid fa-image"></i> Figura 1.3: Ciclo evolutivo por incrementos funcionales sucesivos.
           </figcaption>
-        </div>
+        </figure>
       </div>
 
+      <!-- US-06: Bloques comparativos Ventajas vs. Desventajas -->
       <div class="directory-grid comparison-grid">
         <div class="directory-card comp-pro">
           <h3><i class="fa-solid fa-circle-check"></i> Ventajas</h3>
           <ul class="comp-list">
-            <li>Entrega temprana de valor y prototipos ejecutables.</li>
-            <li>Mayor flexibilidad ante la retroalimentación del usuario.</li>
+            <li>Entrega temprana de valor al usuario y prototipos ejecutables.</li>
+            <li>Mayor flexibilidad ante la retroalimentación continua del cliente.</li>
           </ul>
         </div>
 
         <div class="directory-card comp-con">
           <h3><i class="fa-solid fa-triangle-exclamation"></i> Desventajas</h3>
           <ul class="comp-list">
-            <li>Riesgo de degradación arquitectónica si no se planifica bien.</li>
-            <li>Mayor complejidad en la gestión general del alcance.</li>
+            <li>Riesgo potencial de degradación arquitectónica si no se planifica bien.</li>
+            <li>Mayor complejidad en la gestión general del alcance acumulativo.</li>
           </ul>
         </div>
       </div>
     </section>
 
- 
+  </main>
+  
   <!-- ========================================== -->
-  <!-- MODAL LIGHTBOX PARA PANTALLA COMPLETA (US-07) -->
+  <!-- US-07 [JS]: MODAL LIGHTBOX PANTALLA COMPLETA-->
   <!-- ========================================== -->
-  <div class="lightbox-modal" id="lightboxModal">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar visor">&times;</button>
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-hidden="true" aria-label="Vista ampliada de imagen">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar visor de imagen">&times;</button>
     <img src="" alt="Vista ampliada del diagrama" class="lightbox-img" id="lightboxImg">
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
