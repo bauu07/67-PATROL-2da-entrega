@@ -1,31 +1,25 @@
-/* ========================================================== */
-/* SCRIPT PARA LA PÁGINA PRINCIPAL (index.js)                 */
-/* ========================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menuToggle');
-  const closeDrawer = document.getElementById('closeDrawer');
   const navDrawer = document.getElementById('navDrawer');
+  const closeDrawer = document.getElementById('closeDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  if (menuToggle && navDrawer) {
-    menuToggle.addEventListener('click', () => {
-      navDrawer.classList.add('open');
-      drawerOverlay.classList.add('active');
-    });
+  function toggleMenu() {
+    navDrawer.classList.toggle('open');
+    drawerOverlay.classList.toggle('active');
   }
 
-  if (closeDrawer && navDrawer) {
-    closeDrawer.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('active');
-    });
-  }
+  if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+  if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
-  if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('active');
+  // Cerrar el menú automáticamente al hacer clic en cualquier enlace del drawer en celulares
+  const drawerLinks = document.querySelectorAll('.drawer-menu a');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navDrawer.classList.contains('open')) {
+        toggleMenu();
+      }
     });
-  }
+  });
 });
