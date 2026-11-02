@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>67 Patrol - Recursos y Aprendizaje (US-12, US-13, US-14)</title>
+  <title>67 Patrol - Recursos y Aprendizaje (US-12, US-13, US-14, US-15)</title>
   
   <!-- Fuentes Google y FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR Y MENÚ HAMBURGUESA -->
   <header class="header-bar">
     <div class="logo-container">
       <img src="../imagenes/Logo1.jpg" alt="Logotipo oficial de 67 Patrol" class="header-logo-img">
@@ -37,7 +37,7 @@
       <li><a href="../gestion_calidad/gestion.html"><i class="fa-solid fa-shield-halved"></i><span>GESTIÓN DE LA CALIDAD</span></a></li>
       <li><a href="../procesos_desarrollo/proceso.html"><i class="fa-solid fa-code-branch"></i><span>PROCESOS DE DESARROLLO</span></a></li>
       <li><a href="../metodologias_agiles/metodologias.html"><i class="fa-solid fa-bolt"></i><span>METODOLOGÍAS ÁGILES</span></a></li>
-      <li><a href="recurso.html" class="active"><i class="fa-solid fa-circle-question"></i><span>RECURSOS DE APRENDIZAJE</span></a></li>
+      <li><a href="recurso.html" class="active"><i class="fa-solid fa-circle-question"></i><span>RECURSOS Y APRENDIZAJE</span></a></li>
       <li><a href="../herramientas_interactivas/herramientas.html"><i class="fa-solid fa-laptop-code"></i><span>HERRAMIENTAS INTERACTIVAS</span></a></li>
       <li><a href="../sobre_nosotros/sobre_nosotros.html"><i class="fa-solid fa-users"></i><span>SOBRE NOSOTROS</span></a></li>
       <li><a href="../formulario_contacto/contacto.html"><i class="fa-solid fa-paper-plane"></i><span>CONTACTO</span></a></li>
@@ -158,7 +158,7 @@
           <article class="term-card">
             <span class="term-tag">Agile / XP</span>
             <h3>Extreme Programming (XP)</h3>
-            <p>Metodología ágil orientada a mejorar la calidad del software respondiendo a requisitos cambiantes mediante prácticas como TDD y Pair Programming.</p>
+            <p>Metodología ágil orientada a mejorar la calidad del software respondiendo a requisitos cambiantes mediante TDD y Pair Programming.</p>
           </article>
         </div>
       </div>
@@ -207,7 +207,7 @@
           <article class="term-card">
             <span class="term-tag">Agile / XP</span>
             <h3>Pair Programming</h3>
-            <p>Técnica en la que dos programadores trabajan juntos en una misma estación de trabajo escribiendo y revisando código en tiempo real.</p>
+            <p>Técnica en la que dos programadores trabajan juntos en una misma estación escribiendo y revisando código en tiempo real.</p>
           </article>
         </div>
       </div>
@@ -284,7 +284,7 @@
       </div>
     </section>
 
-    <!-- US-13: SECCIÓN PREGUNTAS FRECUENTES (FAQ) - ACORDEÓN INTERACTIVO -->
+    <!-- US-13: PREGUNTAS FRECUENTES (FAQ) - ACORDEÓN INTERACTIVO -->
     <section class="main-header" style="margin-top: 4rem;">
       <span class="badge-header">US-13 &bull; SOPORTE Y DUDAS</span>
       <h2>Preguntas Frecuentes (FAQ)</h2>
@@ -374,6 +374,51 @@
           <span>Visitar Sitio Oficial</span>
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
+      </article>
+    </section>
+
+    <!-- US-15: EJERCICIOS Y CASOS PRÁCTICOS (SOLUCIONES OCULTAS POR DEFECTO) -->
+    <section class="main-header" style="margin-top: 4rem;">
+      <span class="badge-header">US-15 &bull; PRÁCTICA TÉCNICA</span>
+      <h2>Ejercicios y Casos Prácticos</h2>
+      <p>Pon a prueba tus conocimientos resolviendo escenarios reales de ingeniería.</p>
+    </section>
+
+    <section class="exercises-container">
+      <article class="directory-card exercise-card">
+        <div class="ex-card-top">
+          <div class="ex-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+          <div>
+            <span class="ex-tag">CASO PRÁCTICO #1</span>
+            <h3>Optimización de Flujo y Límites WIP en Kanban</h3>
+          </div>
+        </div>
+        <p><strong>Enunciado:</strong> Un equipo experimenta cuellos de botella constantes en Testing. ¿Cómo ayuda establecer límites WIP estrictos?</p>
+        <button class="cyber-btn-toggle" data-target="solution1">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution1" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>Establecer un límite WIP estricto obliga al equipo a colaborar en la fase de QA para destrabar el flujo en lugar de iniciar nuevas historias de usuario innecesarias.</p>
+        </div>
+      </article>
+
+      <article class="directory-card exercise-card">
+        <div class="ex-card-top">
+          <div class="ex-icon-box"><i class="fa-solid fa-bug-slash"></i></div>
+          <div>
+            <span class="ex-tag">CASO PRÁCTICO #2</span>
+            <h3>Cálculo de Densidad de Defectos (ISO 25010)</h3>
+          </div>
+        </div>
+        <p><strong>Enunciado:</strong> Calcula la densidad de defectos de un módulo con 12,500 líneas de código (KLOC) y 45 incidencias registradas en pruebas.</p>
+        <button class="cyber-btn-toggle" data-target="solution2">
+          <i class="fa-solid fa-code"></i> Ver Solución Técnica
+        </button>
+        <div class="solution-box" id="solution2" style="display: none;">
+          <h4>Solución Propuesta:</h4>
+          <p>Fórmula: <em>Defectos / KLOC</em> &rarr; 45 / 12.5 = <strong>3.6 defectos por KLOC</strong>, lo que indica alta complejidad y necesidad de refactorización.</p>
+        </div>
       </article>
     </section>
 

@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
   if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
+  const drawerLinks = document.querySelectorAll('.drawer-menu a');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navDrawer.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
+
   // 2. US-12: Buscador en tiempo real e índice interactivo A-Z del Glosario
   const glossarySearch = document.getElementById('glossarySearch');
   const clearSearch = document.getElementById('clearSearch');
@@ -102,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. US-13: Lógica del Acordeón FAQ (Preguntas Frecuentes con animación fluida)
+  // 3. US-13: Lógica del Acordeón FAQ (Preguntas Frecuentes)
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach(item => {
@@ -122,6 +131,24 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('active');
         btn.setAttribute('aria-expanded', 'true');
         wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // 4. US-15: Botones Mostrar/Ocultar Solución en Casos Prácticos (Ocultas por defecto)
+  const toggleBtns = document.querySelectorAll('.cyber-btn-toggle');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const solutionBox = document.getElementById(targetId);
+
+      if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
+        solutionBox.style.display = 'block';
+        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ocultar Solución Técnica';
+      } else {
+        solutionBox.style.display = 'none';
+        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ver Solución Técnica';
       }
     });
   });
