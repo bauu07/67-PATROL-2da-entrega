@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Toggle del Menú Lateral (Drawer) para celulares
+  // 1. Toggle del Menú Lateral (Drawer) para móviles
   const menuToggle = document.getElementById('menuToggle');
   const navDrawer = document.getElementById('navDrawer');
   const closeDrawer = document.getElementById('closeDrawer');
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
   if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
-  // Cerrar menú automáticamente al seleccionar una opción en celular
   const drawerLinks = document.querySelectorAll('.drawer-menu a');
   drawerLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -24,165 +23,281 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Toggle para ver solución de Casos Prácticos (US-15)
-  const toggleBtns = document.querySelectorAll('.cyber-btn-toggle');
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const solutionBox = document.getElementById(targetId);
-      
-      if (solutionBox.style.display === 'none' || solutionBox.style.display === '') {
-        solutionBox.style.display = 'block';
-        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ocultar Solución Técnica';
-      } else {
-        solutionBox.style.display = 'none';
-        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ver Solución Técnica';
-      }
+  /* =========================================
+     US-18: COMPARADOR DE METODOLOGÍAS
+     ========================================= */
+  const metodologiasDB = {
+    scrum: {
+      nombre: "Scrum",
+      enfoque: "Iterativo e Incremental (Ágil)",
+      flexibilidad: "Alta (Adaptación por Sprints)",
+      roles: "Scrum Master, Product Owner, Developers",
+      entrega: "Entregables funcionales cada 1-4 semanas",
+      idealPara: "Proyectos complejos con requisitos cambiantes."
+    },
+    kanban: {
+      nombre: "Kanban",
+      enfoque: "Flujo Continuo (Ágil)",
+      flexibilidad: "Muy Alta (Cambios en cualquier momento)",
+      roles: "No prescribe roles estrictos",
+      entrega: "Entrega continua, tarea por tarea",
+      idealPara: "Mantenimiento, soporte y gestión de cuellos de botella."
+    },
+    xp: {
+      nombre: "eXtreme Programming (XP)",
+      enfoque: "Iterativo enfocado en código (Ágil)",
+      flexibilidad: "Alta (Diseño simple y refactorización)",
+      roles: "Cliente, Programadores, Tracker, Coach",
+      entrega: "Entregas muy frecuentes y pequeñas",
+      idealPara: "Proyectos de alto riesgo técnico y calidad estricta."
+    },
+    cascada: {
+      nombre: "Cascada (Waterfall)",
+      enfoque: "Secuencial y Lineal (Tradicional)",
+      flexibilidad: "Baja (Difícil volver a fases anteriores)",
+      roles: "Project Manager, Analistas, Desarrolladores, QA",
+      entrega: "Una única entrega al final del proyecto",
+      idealPara: "Requisitos 100% claros, fijos y sin cambios."
+    },
+    incremental: {
+      nombre: "Modelo Incremental",
+      enfoque: "Módulos secuenciales sucesivos (Tradicional)",
+      flexibilidad: "Media (Permite cambios entre incrementos)",
+      roles: "Roles tradicionales de ingeniería de software",
+      entrega: "Entregas parciales funcionales por incrementos",
+      idealPara: "Proyectos grandes donde se requiere valor temprano."
+    }
+  };
+
+  const checkboxes = document.querySelectorAll('#methodology-selectors input[type="checkbox"]');
+  const tablaComparativa = document.getElementById('tabla-comparativa');
+  const tablaHead = document.getElementById('tabla-head');
+  const tablaBody = document.getElementById('tabla-body');
+  const mensajeAlerta = document.getElementById('comparador-mensaje');
+
+  const caracteristicas = [
+    { clave: 'enfoque', label: 'Enfoque Principal' },
+    { clave: 'flexibilidad', label: 'Flexibilidad a Cambios' },
+    { clave: 'roles', label: 'Roles Definidos' },
+    { clave: 'entrega', label: 'Frecuencia de Entrega' },
+    { clave: 'idealPara', label: 'Ideal Para' }
+  ];
+
+  function actualizarTabla() {
+    const seleccionados = Array.from(checkboxes)
+      .filter(cb => cb.checked)
+      .map(cb => cb.value);
+
+    tablaHead.innerHTML = '';
+    tablaBody.innerHTML = '';
+
+    if (seleccionados.length < 2) {
+      tablaComparativa.classList.add('tabla-oculta');
+      mensajeAlerta.style.display = 'block';
+      return;
+    }
+
+    tablaComparativa.classList.remove('tabla-oculta');
+    mensajeAlerta.style.display = 'none';
+
+    // Renderizar Headers
+    let trHead = '<th>Característica</th>';
+    seleccionados.forEach(id => {
+      trHead += `<th>${metodologiasDB[id].nombre}</th>`;
     });
+    tablaHead.innerHTML = trHead;
+
+    // Renderizar Filas
+    caracteristicas.forEach(caract => {
+      let tr = `<td><strong>${caract.label}</strong></td>`;
+      seleccionados.forEach(id => {
+        tr += `<td>${metodologiasDB[id][caract.clave]}</td>`;
+      });
+      const fila = document.createElement('tr');
+      fila.innerHTML = tr;
+      tablaBody.appendChild(fila);
+    });
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', actualizarTabla));
+
+
+  /* =========================================
+     US-19: ENCUESTA WIZARD (Algoritmo de Selección)
+     ========================================= */
+  const preguntas = [
+    {
+      pregunta: "¿Cómo están definidos los requisitos iniciales del proyecto?",
+      opciones: [
+        { texto: "Claros, fijos y estables desde el día 1, no van a cambiar.", puntaje: { cascada: 3, incremental: 1 } },
+        { texto: "Conocemos lo básico, pero irán evolucionando por fases/módulos.", puntaje: { incremental: 3, scrum: 1 } },
+        { texto: "Muy cambiantes, el cliente descubrirá los detalles sobre la marcha.", puntaje: { scrum: 3, xp: 2 } },
+        { texto: "Es un flujo continuo de solicitudes variadas sin un alcance cerrado.", puntaje: { kanban: 3 } }
+      ]
+    },
+    {
+      pregunta: "¿Con qué frecuencia necesitas entregar software funcional?",
+      opciones: [
+        { texto: "Al finalizar todo el proyecto de forma global.", puntaje: { cascada: 3 } },
+        { texto: "Cada vez que terminamos un módulo grande e independiente.", puntaje: { incremental: 3 } },
+        { texto: "Cada 2 a 4 semanas de manera regular (Sprints).", puntaje: { scrum: 3, xp: 1 } },
+        { texto: "De manera continua, apenas se termina una tarea se despliega.", puntaje: { kanban: 3, xp: 2 } }
+      ]
+    },
+    {
+      pregunta: "¿Cómo está conformado o estructurado el equipo de trabajo?",
+      opciones: [
+        { texto: "Departamentos separados (Diseño, Dev, QA operan en fases secuenciales).", puntaje: { cascada: 3, incremental: 1 } },
+        { texto: "Equipo auto-organizado, colaborativo y multidisciplinario.", puntaje: { scrum: 3, xp: 2 } },
+        { texto: "Equipo enfocado en resolver tareas diarias y eliminar cuellos de botella.", puntaje: { kanban: 3 } },
+        { texto: "Desarrolladores muy técnicos enfocados en pruebas unitarias y calidad de código.", puntaje: { xp: 3 } }
+      ]
+    }
+  ];
+
+  let pasoActual = 0;
+  const puntajesAcumulados = { scrum: 0, kanban: 0, xp: 0, cascada: 0, incremental: 0 };
+
+  const quizContainer = document.getElementById('quiz-container');
+  const btnNext = document.getElementById('btn-next');
+  const btnPrev = document.getElementById('btn-prev');
+  const progressBar = document.getElementById('progress-bar');
+  const quizResult = document.getElementById('quiz-result');
+
+  function renderizarEncuesta() {
+    quizContainer.innerHTML = '';
+    preguntas.forEach((q, qIndex) => {
+      const stepDiv = document.createElement('div');
+      stepDiv.className = `quiz-step ${qIndex === pasoActual ? 'active' : ''}`;
+      stepDiv.id = `step-${qIndex}`;
+
+      let html = `<h3>Pregunta ${qIndex + 1} de ${preguntas.length}: ${q.pregunta}</h3>`;
+      q.opciones.forEach((opc, oIndex) => {
+        html += `
+          <label class="opcion-respuesta">
+            <input type="radio" name="p${qIndex}" value="${oIndex}">
+            ${opc.texto}
+          </label>
+        `;
+      });
+      stepDiv.innerHTML = html;
+      quizContainer.appendChild(stepDiv);
+    });
+
+    quizContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', actualizarBotones);
+    });
+  }
+
+  function actualizarBotones() {
+    const radiosActuales = document.querySelectorAll(`input[name="p${pasoActual}"]:checked`);
+    btnNext.disabled = radiosActuales.length === 0;
+    btnPrev.disabled = pasoActual === 0;
+
+    if (pasoActual === preguntas.length - 1) {
+      btnNext.innerHTML = 'Finalizar y Ver Resultado <i class="fa-solid fa-flag-checkered"></i>';
+    } else {
+      btnNext.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+    }
+
+    progressBar.style.width = `${((pasoActual) / preguntas.length) * 100}%`;
+  }
+
+  btnNext.addEventListener('click', () => {
+    const seleccion = document.querySelector(`input[name="p${pasoActual}"]:checked`).value;
+    const puntajesOpcion = preguntas[pasoActual].opciones[seleccion].puntaje;
+    
+    for (let met in puntajesOpcion) {
+      puntajesAcumulados[met] += puntajesOpcion[met];
+    }
+
+    if (pasoActual < preguntas.length - 1) {
+      document.getElementById(`step-${pasoActual}`).classList.remove('active');
+      pasoActual++;
+      document.getElementById(`step-${pasoActual}`).classList.add('active');
+      actualizarBotones();
+    } else {
+      progressBar.style.width = '100%';
+      mostrarResultado();
+    }
   });
 
-  // 3. Lógica del Wizard / Encuesta Metodológica y Comparador (Scrum, Kanban, Cascada, Modelo en V)
-  const steps = document.querySelectorAll('.wizard-step');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const surveyForm = document.getElementById('surveyForm');
-  const resultsContainer = document.getElementById('resultsContainer');
-  const stepIndicator = document.getElementById('stepIndicator');
-  const progressPercentage = document.getElementById('progressPercentage');
-  const progressFill = document.getElementById('progressFill');
-  const restartBtn = document.getElementById('restartBtn');
+  btnPrev.addEventListener('click', () => {
+    if (pasoActual > 0) {
+      const seleccionPrevia = document.querySelector(`input[name="p${pasoActual-1}"]:checked`).value;
+      const puntajesOpcion = preguntas[pasoActual-1].opciones[seleccionPrevia].puntaje;
+      for (let met in puntajesOpcion) {
+        puntajesAcumulados[met] -= puntajesOpcion[met];
+      }
 
-  let currentStep = 0;
-  const totalSteps = steps.length;
+      document.getElementById(`step-${pasoActual}`).classList.remove('active');
+      pasoActual--;
+      document.getElementById(`step-${pasoActual}`).classList.add('active');
+      actualizarBotones();
+    }
+  });
 
-  function updateWizard() {
-    steps.forEach((step, index) => {
-      step.style.display = (index === currentStep) ? 'block' : 'none';
+  function mostrarResultado() {
+    quizContainer.style.display = 'none';
+    document.querySelector('.wizard-controls').style.display = 'none';
+    quizResult.classList.remove('oculto');
+
+    const maxPuntosPosibles = preguntas.length * 3; 
+    let ganador = '';
+    let maxPuntaje = 0;
+
+    const barrasContenedor = document.getElementById('resultado-barras');
+    barrasContenedor.innerHTML = '';
+
+    const puntajesArray = Object.entries(puntajesAcumulados).sort((a, b) => b[1] - a[1]);
+
+    puntajesArray.forEach(([met, puntaje]) => {
+      if (puntaje > maxPuntaje) {
+        maxPuntaje = puntaje;
+        ganador = met;
+      }
+      
+      let porcentaje = Math.round((puntaje / maxPuntosPosibles) * 100);
+      let nombreCapitalizado = metodologiasDB[met].nombre;
+
+      barrasContenedor.innerHTML += `
+        <div class="resultado-item">
+          <div class="resultado-label">
+            <span>${nombreCapitalizado}</span>
+            <span>${porcentaje}% Match</span>
+          </div>
+          <div class="resultado-track">
+            <div class="resultado-fill" style="width: 0%;" data-width="${porcentaje}%"></div>
+          </div>
+        </div>
+      `;
     });
 
-    if (prevBtn) prevBtn.style.display = (currentStep === 0) ? 'none' : 'block';
+    document.getElementById('resultado-texto').innerHTML = `
+      Basado en tus respuestas, la metodología más recomendada y compatible con tu proyecto es: 
+      <strong style="color: var(--accent-cyan);">${metodologiasDB[ganador].nombre}</strong>.
+    `;
 
-    if (nextBtn) {
-      if (currentStep === totalSteps - 1) {
-        nextBtn.innerHTML = 'Ver Comparativa <i class="fa-solid fa-check"></i>';
-      } else {
-        nextBtn.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
-      }
-    }
-
-    const progress = ((currentStep + 1) / totalSteps) * 100;
-    if (stepIndicator) stepIndicator.textContent = `Paso ${currentStep + 1} de ${totalSteps}`;
-    if (progressPercentage) progressPercentage.textContent = `${Math.round(progress)}% Completado`;
-    if (progressFill) progressFill.style.width = `${progress}%`;
+    setTimeout(() => {
+      document.querySelectorAll('.resultado-fill').forEach(fill => {
+        fill.style.width = fill.getAttribute('data-width');
+      });
+    }, 100);
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      const currentStepEl = steps[currentStep];
-      const selectedRadio = currentStepEl.querySelector('input[type="radio"]:checked');
+  document.getElementById('btn-reiniciar').addEventListener('click', () => {
+    pasoActual = 0;
+    for (let met in puntajesAcumulados) puntajesAcumulados[met] = 0;
+    
+    quizContainer.style.display = 'block';
+    document.querySelector('.wizard-controls').style.display = 'flex';
+    quizResult.classList.add('oculto');
+    
+    renderizarEncuesta();
+    actualizarBotones();
+    progressBar.style.width = '0%';
+  });
 
-      if (!selectedRadio) {
-        alert('Por favor selecciona una opción antes de continuar.');
-        return;
-      }
-
-      if (currentStep < totalSteps - 1) {
-        currentStep++;
-        updateWizard();
-        // Desplazarse suavemente arriba del Wizard en celulares al cambiar de paso
-        document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        calculateResults();
-      }
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      if (currentStep > 0) {
-        currentStep--;
-        updateWizard();
-        document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  }
-
-  function calculateResults() {
-    const formData = new FormData(surveyForm);
-    let counts = { scrum: 0, kanban: 0, cascada: 0, modelov: 0 };
-
-    for (let value of formData.values()) {
-      if (counts[value] !== undefined) {
-        counts[value]++;
-      }
-    }
-
-    const totalAnswers = totalSteps;
-    let scrumPct = Math.round((counts.scrum / totalAnswers) * 100);
-    let kanbanPct = Math.round((counts.kanban / totalAnswers) * 100);
-    let cascadaPct = Math.round((counts.cascada / totalAnswers) * 100);
-    let modelovPct = Math.round((counts.modelov / totalAnswers) * 100);
-
-    if (surveyForm) surveyForm.style.display = 'none';
-    if (resultsContainer) resultsContainer.style.display = 'block';
-
-    const scoreScrum = document.getElementById('scoreScrum');
-    const scoreKanban = document.getElementById('scoreKanban');
-    const scoreCascada = document.getElementById('scoreCascada');
-    const scoreModeloV = document.getElementById('scoreModeloV');
-    const fillScrum = document.getElementById('fillScrum');
-    const fillKanban = document.getElementById('fillKanban');
-    const fillCascada = document.getElementById('fillCascada');
-    const fillModeloV = document.getElementById('fillModeloV');
-
-    if (scoreScrum) scoreScrum.textContent = `${scrumPct}%`;
-    if (scoreKanban) scoreKanban.textContent = `${kanbanPct}%`;
-    if (scoreCascada) scoreCascada.textContent = `${cascadaPct}%`;
-    if (scoreModeloV) scoreModeloV.textContent = `${modelovPct}%`;
-
-    if (fillScrum) fillScrum.style.width = `${scrumPct}%`;
-    if (fillKanban) fillKanban.style.width = `${kanbanPct}%`;
-    if (fillCascada) fillCascada.style.width = `${cascadaPct}%`;
-    if (fillModeloV) fillModeloV.style.width = `${modelovPct}%`;
-
-    let winner = 'Scrum';
-    let maxVal = scrumPct;
-    let desc = 'Tu proyecto se adapta perfectamente a Sprints iterativos, roles definidos y entregas periódicas de valor al usuario.';
-
-    if (kanbanPct > maxVal) {
-      winner = 'Kanban';
-      maxVal = kanbanPct;
-      desc = 'Tu proyecto requiere un flujo continuo y optimización de cuellos de botella mediante límites WIP sin iteraciones rígidas.';
-    }
-    if (cascadaPct > maxVal) {
-      winner = 'Modelo en Cascada';
-      maxVal = cascadaPct;
-      desc = 'Tu proyecto presenta alta criticidad y requisitos estrictos estables, requiriendo un enfoque secuencial documentado.';
-    }
-    if (modelovPct > maxVal) {
-      winner = 'Modelo en V';
-      maxVal = modelovPct;
-      desc = 'Tu proyecto requiere un alto rigor técnico y estructuración formal, asociando cada fase de diseño de ingeniería con su respectivo nivel de pruebas de verificación y validación (QA).';
-    }
-
-    const winnerTitle = document.getElementById('winnerTitle');
-    const winnerDesc = document.getElementById('winnerDesc');
-    if (winnerTitle) winnerTitle.textContent = winner;
-    if (winnerDesc) winnerDesc.textContent = desc;
-
-    document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  if (restartBtn) {
-    restartBtn.addEventListener('click', () => {
-      surveyForm.reset();
-      surveyForm.style.display = 'block';
-      resultsContainer.style.display = 'none';
-      currentStep = 0;
-      updateWizard();
-      document.getElementById('wizardWrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-  }
-
-  updateWizard();
+  renderizarEncuesta();
+  actualizarBotones();
 });
